@@ -100,18 +100,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 
 
-## Diagramas
-
-### Diagrama de Casos de Uso
+## Diagrama de Casos de Uso
 
 ![Diagrama de Casos de Uso](img/diagrama-de-uso.png)
-
-
-
-### Diagrama de Classes
-
-
-
-
-
-### Diagrama de Fluxo
