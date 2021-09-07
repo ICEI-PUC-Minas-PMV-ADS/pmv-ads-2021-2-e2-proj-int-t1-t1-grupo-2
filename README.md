@@ -1,23 +1,25 @@
 # TÍTULO DO PROJETO
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Projeto: Desenvolvimento de uma Aplicação Interativa - Turma 01`
 
-`SEMESTRE`
+`2021/2`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Felippe Diniz Faria Coelho
+* Geovane Vinicius Lacerda Gomes
+* José Flávio Miranda
+* Ludmila Rangel Da Silva Guizan Pinheiro
+* Maykell Alvim De França
+* Rafael Xavier Rezende
 
 ## Orientador
 
-* Nome completo do professor 1
+* Simone Alves Nogueira
 
 ## Instruções de utilização
 
