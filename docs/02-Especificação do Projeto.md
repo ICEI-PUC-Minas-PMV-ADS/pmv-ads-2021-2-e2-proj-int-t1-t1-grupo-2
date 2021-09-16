@@ -2,23 +2,23 @@
 
 ## Personas
 
-![Persona 1](img/persona1.png)
+![Persona 1](img/persona1.PNG)
 
 
 
-![Persona 2](img/persona2.png)
+![Persona 2](img/persona2.PNG)
 
 
 
-![Persona 3](img/persona3.png)
+![Persona 3](img/persona3.PNG)
 
 
 
-![Persona 4](img/persona4.png)
+![Persona 4](img/persona4.PNG)
 
 
 
-![Persona 5](img/persona5.png)
+![Persona 5](img/persona5.PNG)
 
 
 
