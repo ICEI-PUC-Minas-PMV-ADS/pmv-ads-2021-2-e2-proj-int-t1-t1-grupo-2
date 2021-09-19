@@ -48,9 +48,11 @@ etiquetas:
 
 Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Trello estruturado com as seguintes listas: 
 
-**Etiquetas**: esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. 
+**Labels**: esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. 
 
-**Backlog**: recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto irão ser incorporadas a esta lista. 
+**Backlog**:  Representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto irão ser incorporadas a esta lista.
+
+**Issues**: Tarefas a serem trabalhadas.
 
 **To Do**: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando. 
 
@@ -64,9 +66,10 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 
 **Done**: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação. 
 
-Abaixo uma imagem do Quadro Kanban do grupo no Trello:
+Abaixo uma imagem do Quadro Kanban do grupo no Github:
 
-![Quadro Kanban](img/kanban-trello.png)
+![github](https://user-images.githubusercontent.com/82007501/133941675-ead1917c-a39e-495b-904d-e0a25cf09ea7.PNG)
+
 
 ### Ferramentas
 
@@ -78,7 +81,7 @@ O projeto será desenvolvidos a partir de diversas plataformas e a relação dos
 |         Editor de código          |  Visual Studio Code   |
 |       Documentos do projeto       | Office online / Teams |
 | Projeto de Interface e Wireframes |         Figma         |
-|     Gerenciamento do Projeto      |        Trello         |
+|     Gerenciamento do Projeto      |        Github         |
 |             Diagramas             |      Lucidchart       |
 |            Comunicação            |   WhatsApp e Teams    |
 
