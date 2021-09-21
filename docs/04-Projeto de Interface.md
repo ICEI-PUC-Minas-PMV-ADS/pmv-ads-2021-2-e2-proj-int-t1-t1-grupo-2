@@ -22,15 +22,44 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 ## Wireframes
 
-![Exemplo de Wireframe](img/wireframe-example.png)
+**Tela 1 - Home**
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
+![Tela Home](img/tela-home.jpg)
+
+**Tela 2 - Login**
+
+![Tela Login](img/tela-login.jpg)
+
+**Tela 3 - Perfil de cliente**
+
+![Tela Perfil cliente](img/tela-perfil-cliente.jpg)
+
+**Tela 4 - Perfil dos restaurantes**
+
+![Tela Perfil restaurantes](img/tela-perfil-restaurante.jpg)
+
+**Tela 5 - Cadastro de clientes**
+
+![Tela Home](img/tela-cadastro-cliente.jpg)
+
+**Tela 6 - Cadastro de resturantes**
+
+![Tela Cadastro de resturantes](img/tela-cadastro-restaurantes.jpg)
+
+**Tela 7 - Busca dos Restaurantes**
+
+![Busca dos Restaurantes](img/tela-restaurantes.jpg)
+
+**Tela 8 - Fazer Reservas**
+
+![Tela Fazer Reservas](img/tela-reserva.jpg)
+
+**Tela 9 - Avaliação dos Restaurantes**
+
+![Tela Avaliação dos Restaurantes](img/tela-avaliacao.jpg)
+
+**Tela 10 - Cardápio**
+
+![Tela Cardápio](img/tela-cardapio.jpg)
+
+
