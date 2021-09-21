@@ -19,8 +19,8 @@ etiquetas:
 
 - `documentation`: melhorias ou acréscimos à documentação
 - `bug`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
-- `feature`: uma nova funcionalidade precisa ser introduzida
+- `improve`: uma funcionalidade precisa ser melhorada
+- `new`: uma nova funcionalidade precisa ser introduzida
 
 
 
@@ -54,13 +54,11 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 
 **Code Review:** Esta lista é para itens na revisão de código. 
 
-**Locked**: Quando alguma coisa impede a conclusão da tarefa, ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa. 
-
 **Done**: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação. 
 
 Abaixo uma imagem do Quadro Kanban do grupo no Github:
 
-![github](https://user-images.githubusercontent.com/82007501/133941675-ead1917c-a39e-495b-904d-e0a25cf09ea7.PNG)
+![Quadro Kanban Github](img/quadro-kanban2.png)
 
 
 ### Ferramentas
