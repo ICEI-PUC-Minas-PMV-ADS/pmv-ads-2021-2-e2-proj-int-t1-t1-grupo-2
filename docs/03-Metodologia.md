@@ -11,7 +11,6 @@ foi utilizado para hospedagem do repositório.
 O projeto segue a seguinte convenção para o nome de branches:
 
 - `main`: versão estável já testada do software
-- `unstable`: versão já testada do software, porém instável
 - `testing`: versão em testes do software
 - `dev`: versão de desenvolvimento do software
 
@@ -40,27 +39,20 @@ etiquetas:
   * Rafael Xavier Rezende
 * Equipe de Design
   * Ludmila Rangel da Silva Guizan Pinheiro
-  * 
 
 
 
 ### Processo
 
-Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Trello estruturado com as seguintes listas: 
-
-**Labels**: esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. 
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Github estruturado com as seguintes listas: 
 
 **Backlog**:  Representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto irão ser incorporadas a esta lista.
 
-**Issues**: Tarefas a serem trabalhadas.
-
 **To Do**: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando. 
 
-**Doing**: Quando uma tarefa tiver sido iniciada, ela é movida para cá. 
+**In progress**: Quando uma tarefa tiver sido iniciada, ela é movida para cá. 
 
-**Code Review:** Esta lista é para itens na revisão de código. Quando uma tarefa é aprovada, passa para Teste. Se houver muitos cartões aqui, devemos interromper outras tarefas para concluir a revisão do código.
-
-**Test**: Os cartões chegam aqui após a revisão do código e estamos prontos para o controle de qualidade e para corrigir as coisas que o controle de qualidade encontra.
+**Code Review:** Esta lista é para itens na revisão de código. 
 
 **Locked**: Quando alguma coisa impede a conclusão da tarefa, ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa. 
 
