@@ -21,44 +21,54 @@ https://lucid.app/lucidchart/5e08db9d-2248-4b91-a6a1-0890698dc658/edit?viewport_
 
 ## Wireframes
 
+<a href="https://www.figma.com/proto/Pnb7Jx6c6urs71y3YPfSuT/Projeto-De-Agendamento?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A2"> Wireframe Interativo</a>
+
 **Tela 1 - Home**
 
-![Tela Home](img/tela-home.jpg)
+![Tela Home](img/tela-home2.jpg)
 
 **Tela 2 - Login**
 
-![Tela Login](img/tela-login.jpg)
+![Tela Login](img/tela-login2.jpg)
 
 **Tela 3 - Perfil de cliente**
 
-![Tela Perfil cliente](img/tela-perfil-cliente.jpg)
+![Tela Perfil cliente](img/tela-perfil-cliente2.jpg)
 
 **Tela 4 - Perfil dos restaurantes**
 
-![Tela Perfil restaurantes](img/tela-perfil-restaurante.jpg)
+![Tela Perfil restaurantes](img/tela-perfil-restaurante2.jpg)
 
 **Tela 5 - Cadastro de clientes**
 
-![Tela Home](img/tela-cadastro-cliente.jpg)
+![Tela Home](img/tela-cadastro-cliente2.jpg)
 
 **Tela 6 - Cadastro de resturantes**
 
-![Tela Cadastro de resturantes](img/tela-cadastro-restaurantes.jpg)
+![Tela Cadastro de resturantes](img/tela-cadastro-restaurantes2.jpg)
 
 **Tela 7 - Busca dos Restaurantes**
 
-![Busca dos Restaurantes](img/tela-restaurantes.jpg)
+![Busca dos Restaurantes](img/tela-restaurantes2.jpg)
 
 **Tela 8 - Fazer Reservas**
 
-![Tela Fazer Reservas](img/tela-reserva.jpg)
+![Tela Fazer Reservas](img/tela-reserva2.jpg)
 
-**Tela 9 - Avaliação dos Restaurantes**
+**Tela 9 - Mapa das mesas**
 
-![Tela Avaliação dos Restaurantes](img/tela-avaliacao.jpg)
+![Tela Mapa das mesas](img/tela-mapa-mesas2.jpg)
 
-**Tela 10 - Cardápio**
+**Tela 10 - Informações da reserva no perfil**
 
-![Tela Cardápio](img/tela-cardapio.jpg)
+![Tela Informações da reserva no perfil](img/tela-reserva-perfil2.jpg)
+
+**Tela 11 - Avaliação dos Restaurantes**
+
+![Tela Avaliação dos Restaurantes](img/tela-avaliacao2.jpg)
+
+**Tela 12 - Cardápio**
+
+![Tela Cardápio](img/tela-cardapio2.jpg)
 
 
