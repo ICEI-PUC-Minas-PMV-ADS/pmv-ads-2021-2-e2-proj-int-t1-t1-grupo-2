@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+<img src="docs/img/logo-dinner.png" alt="Logo Dinner Boss" width="280">
 
 `Análise e Desenvolvimento de Sistemas`
 
@@ -6,7 +6,8 @@
 
 `2021/2`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Devido a pandemia as pessoas tiveram que ficar em casa, muitos estabelecimentos fecharam temporariamente e com isso todos ficaram com medo de se contaminar. Mesmo depois da liberação para os restaurantes voltarem a abrir, ainda existe uma parte da população que não se sente segura em um local público, pois não tem muitas informações do local e se terá aglomeração.
+Diante disso vemos que um sistema de agendamento para os comércios seria de grande ajuda para a população trazendo mais segurança na hora de sair de casa.
 
 ## Integrantes
 
@@ -15,6 +16,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * José Flávio Miranda
 * Ludmila Rangel Da Silva Guizan Pinheiro
 * Maykell Alvim De França
+* Pablo Henrique Xavier Borges
 * Rafael Xavier Rezende
 
 ## Orientador
