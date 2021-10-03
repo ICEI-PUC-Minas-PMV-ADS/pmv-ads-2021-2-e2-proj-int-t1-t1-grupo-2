@@ -17,21 +17,21 @@ Os testes funcionais a serem realizados no site são descritos a seguir.
 | **Passos** | 1) Acessar o Navegador e informar o endereço do Site 2) Acessar os links vinculados aos restaurantes 3) Acessar os formularios para agendamento de reserva, elogios/reclamações, informações de contato e cardapio. |
 | **Critérios de Êxito** | Validar se as paginas hmtl carregam corretamente. |
 
-| **Caso de Teste** | **CT-02 – Cadastro** |
+| **Caso de Teste** | **CT-02 – Formulários de cadastro** |
 | --- | --- |
-| **Requisitos Associados** | RF-002, RF-003, RF-004, RF-009, RF-010  |
-| **Objetivo do Teste** | Validar o funcionamento do codigo relacionado aos cadastros de clientes. |
-| **Passos** | 1) Acessar o formulario de cadastro de restaurantes e clientes; 2) Realizar cadastros de teste; 3) Fazer uma reserva de teste; 4) Fazer atualizaçõess no formulario de cardapio; 5) Realizar cancelamento de reserva e cadastros de restaurantes/usuarios. |
-| **Critérios de Êxito** | Dados submetidos devem ser salvos em um array gerado por código Java Script em Local Storage e apresentados na página Serviços como tabela |
+| **Requisitos Associados** | RF-002, RF-003, RF-004, RF-010  |
+| **Objetivo do Teste** | Validar o funcionamento dos formulários de cadastro bam como o codigo da camada controller funcionam corretamente. |
+| **Passos** | 1) Acessar o formulario de cadastro de restaurantes e clientes; 2) Realizar cadastros de teste; 3) Fazer atualizaçõess no formulario de cardapio; 5) Fazer atualizações nas informações das mesas disponiveis. |
+| **Critérios de Êxito** | Informações cadastradas persistem e são recuperadas com exito durante a operação do site. |
 
-| **Caso de Teste** | **CT-03 – Funções do Controller** |
+| **Caso de Teste** | **CT-03 – Formulários de reserva** |
 | --- | --- |
-| **Requisitos Associados** | RF-005, RF-007, RF-012, RF-014  |
-| **Objetivo do Teste** | Validar o funcionamento dos formulários relacionados ao codigo da camada controller funciona corretamente .|
-| **Passos** | 1) Acessar o formulario de cadastro de restaurantes e clientes; 2) Fazer alguns cadastros de teste; 3) Fazer uma reserva com um usuario cadastrado; 4) Fazer atualizaçõess no formulario de cardapio; 5) Realizar cancelamento de reserva e cadastros de restaurantes/usuarios. |
-| **Critérios de Êxito** | Dados submetidos nos formularios são operados corretamente pelas funções programadas no controller. |
+| **Requisitos Associados** | RF-005, RF-007, RF-009, RF-012, RF-014  |
+| **Objetivo do Teste** | Validar o funcionamento dos formulários de reserva bam como o codigo da camada controller funcionam corretamente. |
+| **Passos** | 1) Acessar o formulario de reserva; 2) Fazer algumas reservas de teste; 3) Consultar a reserva realizada; 4) Realizar cancelamento de reserva e cadastros de restaurantes/usuarios. |
+| **Critérios de Êxito** | Informações cadastradas persistem e são recuperadas com exito durante a operação do site. |
 
-| **Caso de Teste** | **CT-04 – Camada de persistencia de dados** |
+| **Caso de Teste** | **CT-04 – Persistencia dos dados** |
 | --- | --- |
 | **Requisitos Associados** | RF-006, RF-008, RF-011 |
 | **Objetivo do Teste** | Validar o funcionamento das camadas de persistencia de dados, onde as informações cadastradas no sistema que são consultadas retornam como resultado os dados que foram inseridos.  |
