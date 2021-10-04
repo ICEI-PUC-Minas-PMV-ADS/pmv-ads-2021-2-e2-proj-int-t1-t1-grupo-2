@@ -70,8 +70,8 @@ O projeto será desenvolvidos a partir de diversas plataformas e a relação dos
 |    Repositório de código fonte    |        GitHub         |
 |         Editor de código          |  Visual Studio Code   |
 |       Documentos do projeto       | Office online / Teams |
-| Projeto de Interface e Wireframes |         Figma         |
-|     Gerenciamento do Projeto      |        Github         |
+| Projeto de Interface e Wireframes | <a href="https://www.figma.com/file/Pnb7Jx6c6urs71y3YPfSuT/Projeto-De-Agendamento?node-id=0%3A1"> Figma </a> |
+|     Gerenciamento do Projeto      | <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2021-2-e2-proj-int-t1-t1-grupo-2/projects"> Github </a>         |
 |             Diagramas             |      Lucidchart       |
 |            Comunicação            |   WhatsApp e Teams    |
 
