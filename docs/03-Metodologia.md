@@ -28,8 +28,8 @@ etiquetas:
 
 ### Divisão de Papéis
 
-* Scrum Master: 
-* Product Owner: 
+* Scrum Master: Ludmila Rangel da Silva Guizan Pinheiro
+* Product Owner: Maykell Alvim De França
 * Equipe de Desenvolvimento:
   * Felippe Diniz Faria Coelho
   * Geovane Vinicius Lacerda Gomes
