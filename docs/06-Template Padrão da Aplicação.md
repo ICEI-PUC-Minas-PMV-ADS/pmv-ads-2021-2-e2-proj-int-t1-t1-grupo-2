@@ -9,28 +9,28 @@ O padrão de layout a ser utilizado pelo site tem correspondência ao projeto de
 
 ![web-page-header-footer](https://user-images.githubusercontent.com/82729897/135778066-e9cfa2b7-80f4-4b90-beec-594eb1ce1cf9.png)
 
-O template criado está disponível no site http://github.com/…..  e é composto pelos seguintes layouts: 
+Para a identidade visual do site, será usada as cores laranja e azul de acordo com a logo do projeto.
 
-●	Tela Principal/Tela Home
+<img src="img/laranja.png" alt="Cor laranja" width="80"> ***Laranja - #EF9F56***
 
-●
+<img src="img/azul.png" alt="Cor azul" width="80"> ***Azul - #2C5FE1***
 
-●	
+<img src="img/azul-claro.png" alt="Cor azul claro" width="80"> ***Azul claro - #95ACE7***
 
 A responsividade segue o padrão do Bootstrap.
 
-**Tela Principal - Home**
+Abaixo algumas imagens mostrando o layout:
 
-Tela inicial do site, inclui depoimento de alguns clientes, seção para cadastro e área de busca de estabelecimento.
+**Home** 
 
-
-![tela-home2](https://user-images.githubusercontent.com/82729897/135777825-7d37c906-d547-47ef-b72a-51aa76d2637a.jpg)
-
+![Tela Home](img/tela-home2.png)
 
 
-> **Links Úteis**:
->
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)
+**Login**
+
+![Tela Login](img/tela-login2.png)
+
+
+**Cadastro de restaurantes**
+
+![Tela Cadastro de resturantes](img/tela-cadastro-restaurantes2.png)
