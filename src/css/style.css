@@ -1,0 +1,149 @@
+:root{
+--azul: #2C5FE1; 
+--laranja: #EF9F56; 
+--azul-claro: #95ACE7; 
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  text-decoration: none;
+}
+
+/* Cabeçalho */
+
+header {
+  background: var(--azul-claro);
+  padding: 0 10px;
+}
+
+.nav-menu {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  color: #FFF;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.active {
+  color: var(--laranja);
+}
+
+.nav-menu:hover, .nav-menu:focus {
+  color: var(--azul);
+}
+
+.btn-login, btn-buscar {
+  background-color: var(--azul);
+  color: #FFF;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  transition: .5s;
+  text-decoration: none;
+}
+
+.btn-login:hover, .btn-buscar:hover {
+  text-decoration: none;
+  color: var(--azul);
+  background-color: transparent;
+  border-color: var(--laranja); 
+}
+
+
+/* Footer */
+
+footer {
+  margin-top: auto;
+  background-color: var(--laranja);
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+ }
+
+#footer-area {
+  text-align: center;
+  width: 100%;
+}
+
+.footer-sociais {
+  padding: 1rem;
+}
+
+.link-sociais{
+  font-size: 1.7rem;
+  color: #FFF;
+  padding-right: 1rem;
+  float: right;  
+}
+
+footer h3{
+  padding: 1rem 0.5rem;
+  font-size: 1.7rem;
+  color: #FFF;
+  float: left;
+}
+
+/*Home*/
+
+.background-home{
+  background-image: url('/img/comida-home.jpg');  
+  background-size: cover;
+  background-position: center;
+  height: 100vh;  
+}
+
+#busca-home h1,form {
+  color: #FFF;
+  width: 70%;
+  float:right;
+  text-align: center;
+  padding: 80px 0 0;  
+}
+
+.input-home{
+  width: 52%;
+  padding: 10px;
+}
+
+#text-busca-home{
+  border: 2px solid var(--laranja);
+  border-radius: 0.5rem;
+}
+
+.btn-buscar{
+  width: 40%;
+}
+
+.btn-home{
+  width: 52%;
+  display: flex;
+  justify-content: center;  
+}
+
+#depoimentos-home h1{
+  padding: 5% 10% 0; 
+  text-align: center;  
+}
+
+#depoimentos-home h3{
+  padding: 2%;
+  text-align: center; 
+  color: var(--laranja) 
+}
+
+#cadastro-home h2{
+  color: var(--laranja);
+  padding: 5% 12%; 
+  text-align: center;
+}
