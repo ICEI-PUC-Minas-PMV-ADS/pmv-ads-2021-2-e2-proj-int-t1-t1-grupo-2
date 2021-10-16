@@ -31,11 +31,14 @@ header {
   font-weight: bold;
   color: #FFF;
   text-decoration: none;
+  font-size: 18px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 .active {
   color: var(--laranja);
+  text-shadow: 0.1em 0em 0.2em #FFF;
+  font-size: 18px;
 }
 
 .nav-menu:hover, .nav-menu:focus {
@@ -97,7 +100,7 @@ footer h3{
 /*Home*/
 
 .background-home{
-  background-image: url('/img/comida-home.jpg');  
+  background-image: url('../img/comida-home.jpg');  
   background-size: cover;
   background-position: center;
   height: 100vh;  
@@ -147,3 +150,142 @@ footer h3{
   padding: 5% 12%; 
   text-align: center;
 }
+
+/* Perfil Restaurante*/
+
+.background-restaurante{
+  background-image: url('../img/pizza.jpeg');  
+  background-size: cover;
+  background-position: center;
+  height: 70vh;  
+}
+
+.nome-logo-restaurante{
+  display: flex;
+  align-items: center;
+  padding: 8% 0;
+}
+
+.logo{
+  border: 0.2rem solid var(--laranja);
+  margin: 1rem;
+}
+
+.nome-restaurante{
+  color: #FFF;
+  font-weight: bold;
+}
+
+#sub-menu ul{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0.5rem;
+  background-color: var(--azul);
+  list-style-type: none;
+}
+
+#sub-menu a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #FFF;
+}
+
+#sub-menu a:hover {
+  text-decoration: none;
+  color: var(--azul);
+  background-color: #FFF;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#sub-menu li{
+  text-decoration: none;
+    color: #FFF;
+}
+
+.star{
+  color: var(--laranja);
+  padding: 0.5rem;
+}
+
+.align{
+  text-align: center;
+}
+
+#informacoes-rest i{
+  color: var(--laranja);
+  font-size: 2.5rem;
+  padding-bottom: 0.8rem;
+}
+
+/* Cadastro Restaurante */
+
+.teste{
+  background-color: turquoise;
+}
+
+.form-rest{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.titulo-form-cadastro{
+  color:black;
+  padding-bottom: 3rem; 
+}
+
+.text-form-cadastro {
+  color:black;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-start;
+}
+
+#form-cadastro-rest input{
+  border: 2px solid var(--laranja);
+  border-radius: 15px;
+}
+
+.input-check{
+  float: left;
+  margin-left: -0.8em;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.25em; 
+}
+
+.label-check{
+  color: black;
+  float: left;
+  margin-left: 1em;
+}
+
+.btn-cadastro{
+  background-color: var(--azul);
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 3px solid transparent;
+  transition: .5s;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-cadastro:hover{
+  text-decoration: none;
+  color: #495057;
+  font-weight: bold;
+  background-color: transparent;
+  border-color: var(--azul);
+}
+
+
+  

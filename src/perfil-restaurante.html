@@ -49,49 +49,60 @@
     </header>
 
     <main>
-      <section id= "busca-home" class="background-home">
-        <div class="container">
-          <div class="row d-flex justify-content-end">            
-            <div class="col-9 position-relative overflow-hidden ">
-              <h1 class="display-4 fw-bold">Reserve os melhores restaurantes</h1>
+        <section class="background-restaurante">
+            <div class="nome-logo-restaurante">
+                <img class="logo rounded-circle" width="180px" src="./img/pizza-time.png" alt="">
+                <h3 class="nome-restaurante display-4 fw-bold">Pizza Time</h3>
             </div>
-            <div>
-              <form class="input-home">
-                <div class="mb-3">
-                  <label class="form-label"></label>
-                  <input type="text" class="form-control" id="text-busca-home" required="">
+        </section>
+        <section id="sub-menu">
+            <div class="row">
+                <ul class="col-md-6">
+                    <li class="">
+                        <a href="">Fazer reserva</a>
+                    </li>
+                    <li class="">
+                        <a href="">Ver cardápio</a>
+                    </li> 
+                    <li class="">
+                        <a href="">Avaliar</a>
+                    </li>
+                </ul>
+                <ul class="col-md-6">
+                    <li><i class="star fas fa-star"></i>Atendimento: 4,8</li>
+                    <li><i class="star fas fa-star"></i>Comida: 5,0</li>
+                    <li><i class="star fas fa-star"></i>Ambiente: 4,5</li>
+                </ul>
+            </div>
+        </section>
+        <section id="informacoes-rest">
+            <div class="row">
+                <div class="col-md-3 align p-5">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Endereço:</h4>
+                    <p> Avenida Lorem Ipsum, 125 <br> 
+                        Bairrro Lorem Ipsum </p>
                 </div>
-              </form>
+                <div class="col-md-3 align p-5">
+                    <i class="far fa-clock"></i>
+                    <h4>Funcionamento:</h4>
+                    <p> Terça a Domingo <br> 
+                        18h às 23h</p>
+                </div>
+                <div class="col-md-3 align p-5">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Contato:</h4>
+                    <p> (31) 3421-1025 <br> 
+                        @pizzariax </p>
+                </div>
+                <div class="col-md-3 align p-5">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4> Formas de pagamento:</h4>
+                    <p> Dinheiro | Pix <br> 
+                        Débito | Crédito </p>
+                </div>
             </div>
-            <div class="btn-home col-9 position-relative overflow-hidden">
-              <button type="submit" class="btn btn-login btn-buscar">Buscar</button>         
-            </div>        
-          </div>
-        </div>      
-      </section>
-      <section id="depoimentos-home">
-        <h1 class="display-5 fw-bold">Agora ficou muito mais fácil encontrar o restaurante ideal e fazer sua reserva.</h1>
-        <h3 class="display-6">Veja o depoimento de alguns de nossos usuários:</h3>
-        <div class="row">
-          <div class="col-lg-6 d-flex justify-content-center align-items-center py-3">
-            <img class="" width="50%" src="./img/depoimento-pedro.png">
-          </div>
-          <div class="col-lg-6 d-flex justify-content-center align-items-center py-3">
-            <img class="" width="50%" src="./img/depoimento-claudia.png">
-          </div>
-        </div>
-      </section>
-      <section id="cadastro-home">
-        <h2 class="display-5 fw-bold">Faça seu cadastro, é grátis!!!</h2>
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-lg-5 d-flex justify-content-center align-items-center pb-4">
-            <button type="submit" class="btn btn-login btn-buscar">Sou cliente!</button>
-          </div>
-          <div class="col-lg-5 d-flex justify-content-center align-items-center pb-4">
-            <button type="submit" class="btn btn-login btn-buscar">Cadastrar restaurante!</button>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
 
     <footer>
