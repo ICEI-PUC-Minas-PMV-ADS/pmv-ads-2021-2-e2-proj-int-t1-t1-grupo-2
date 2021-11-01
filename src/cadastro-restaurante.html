@@ -31,17 +31,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-menu" aria-current="page" href="#">Restaurantes</a>
+                        <a class="nav-menu" aria-current="page" href="./busca-restaurantes.html">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="#">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="#">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
-                    <button href="" class="btn btn-login" type="submit">Login</button>
+                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="submit">Cadastre-se</button>
+                    <button href="" class="btn btn-login" type="submit">Login</button>                    
                 </ul>
             </div>
             </div>
@@ -86,7 +87,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="emailRestaurante" class="form-label text-form-cadastro ">Email</label>
-                            <input type="email" class="form-control form-cadastro-input" id="emailRestaurante" placeholder="exemplo@exemplo.com.br">
+                            <input type="email" class="form-control form-cadastro-input" id="emailRestaurante" placeholder="exemplo@exemplo.com.br" required>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-10">

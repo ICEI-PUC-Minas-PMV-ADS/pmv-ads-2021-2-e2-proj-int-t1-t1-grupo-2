@@ -1,8 +1,13 @@
 # Registro de Testes de Usabilidade
 
-Após realizar os testes de usabilidade, obtém-se um relatório a partir das análises realizadas. O Registro de Testes de Usabilidade é um relatório que contém as evidências dos testes e relatos dos usuários participantes, baseado no Plano de Testes de Usabilidade desenvolvido para os casos de uso desta etapa.
+| **Caso de Teste**         | **CTU-01 - Testar a responsividade do site**                 |
+| ------------------------- | ------------------------------------------------------------ |
+| **Requisitos Associados** | RF-001, RF-013, RF-017                                       |
+| **Objetivo do Teste**     | Verificar se o site é responsivel de maneira satisfatória tanto em computadores quanto em smartphones. |
+| **Imagens**               | ![Telas do teste de resposividade](C:\Cursos\ADS\2º Semestre\pmv-ads-2021-2-e2-proj-int-t1-t1-grupo-2\src\img\testectu1.png) |
+| **Critérios de Êxito**    | Deve ser possível acessar e compreender todo o conteúdo do site através de ambos os dispositivos. |
+| **Registro**              | A maior parte do site está com a responsividade correta, é possivel acessar os cadastros, a página de busca dos restaurantes e o menu. A página inicial vai precisar de alguns ajustes ainda. |
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Registro de Testes de Usabilidade”.
 
-> **Links Úteis**:
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+
+Obs.: O outro teste será realizado quando as outras funcionalidades forem programadas.

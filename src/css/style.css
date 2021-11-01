@@ -45,10 +45,11 @@ header {
   color: var(--azul);
 }
 
-.btn-login, btn-buscar {
+.btn-login, .btn-buscar {
   background-color: var(--azul);
   color: #FFF;
   font-weight: bold;
+  text-transform: uppercase;
   padding: 5px 10px;
   border-radius: 10px;
   border: 3px solid transparent;
@@ -56,11 +57,24 @@ header {
   text-decoration: none;
 }
 
-.btn-login:hover, .btn-buscar:hover {
+.btn-login:hover, .btn-buscar:hover, .btn-cadastro-usuario:hover{
   text-decoration: none;
   color: var(--azul);
   background-color: transparent;
   border-color: var(--laranja); 
+}
+
+.btn-cadastro-usuario {
+  background-color: var(--laranja);
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  transition: .5s;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
 
@@ -153,11 +167,25 @@ footer h3{
 
 /* Perfil Restaurante*/
 
-.background-restaurante{
+.bg-ptime{
   background-image: url('../img/pizza.jpeg');  
   background-size: cover;
   background-position: center;
   height: 70vh;  
+}
+
+.bg-sushi{
+  background-image: url('../img/sushi.jpeg');  
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+}
+
+.bg-grelhado{
+  background-image: url('../img/grelhado.jpg');  
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
 }
 
 .nome-logo-restaurante{
@@ -204,7 +232,7 @@ footer h3{
 
 #sub-menu li{
   text-decoration: none;
-    color: #FFF;
+  color: #FFF;
 }
 
 .star{
@@ -246,7 +274,7 @@ footer h3{
   align-items: flex-start;
 }
 
-#form-cadastro-rest input{
+.form-cadastro-input{
   border: 2px solid var(--laranja);
   border-radius: 15px;
 }
@@ -285,6 +313,29 @@ footer h3{
   font-weight: bold;
   background-color: transparent;
   border-color: var(--azul);
+}
+
+
+/*Página busca restaurantes*/
+
+.busca-logos{
+  border: 0.2rem solid var(--laranja);
+  width: 130px;  
+}
+
+.logo-nome{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.busca-nome{
+  text-align: center;
+  font-weight: bold;  
+  font-size:15px;
+  color: black;
+  padding-top: 1rem;
 }
 
 

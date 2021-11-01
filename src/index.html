@@ -30,19 +30,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-menu" aria-current="page" href="#">Restaurantes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
-                    </li>
+                  <li class="nav-item">
+                    <a class="nav-menu" aria-current="page" href="./busca-restaurantes.html">Restaurantes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                </li>
                 </ul>
                 <ul class="d-flex">
-                    <button href="" class="btn btn-login" type="submit">Login</button>
-                </ul>
+                  <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="submit">Cadastre-se</button>
+                  <button href="" class="btn btn-login" type="submit">Login</button>                    
+              </ul>
             </div>
             </div>
         </nav>
@@ -64,7 +65,7 @@
               </form>
             </div>
             <div class="btn-home col-9 position-relative overflow-hidden">
-              <button type="submit" class="btn btn-login btn-buscar">Buscar</button>         
+              <button onclick="window.location.href = './busca-restaurantes.html'" type="submit" class="btn btn-buscar">Buscar</button>         
             </div>        
           </div>
         </div>      
@@ -85,10 +86,10 @@
         <h2 class="display-5 fw-bold">Faça seu cadastro, é grátis!!!</h2>
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-lg-5 d-flex justify-content-center align-items-center pb-4">
-            <button type="submit" onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-login btn-buscar">Sou cliente!</button>
+            <button type="submit" onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-buscar">Sou cliente!</button>
           </div>
           <div class="col-lg-5 d-flex justify-content-center align-items-center pb-4">
-            <button type="submit" onclick="window.location.href = './cadastro-restaurante.html'" class="btn btn-login btn-buscar">Cadastrar restaurante!</button>
+            <button type="submit" onclick="window.location.href = './cadastro-restaurante.html'" class="btn btn-buscar">Cadastrar restaurante!</button>
           </div>
         </div>
       </section>

@@ -31,17 +31,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-menu" aria-current="page" href="#">Restaurantes</a>
+                        <a class="nav-menu" aria-current="page" href="./busca-restaurantes.html">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="#">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
-                    <button href="" class="btn btn-login" type="submit">Login</button>
+                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="submit">Cadastre-se</button>
+                    <button href="" class="btn btn-login" type="submit">Login</button>                    
                 </ul>
             </div>
             </div>
@@ -49,17 +50,17 @@
     </header>
 
     <main>
-        <section class="background-restaurante">
+        <section class="bg-grelhado">
             <div class="nome-logo-restaurante">
-                <img class="logo rounded-circle" width="180px" src="./img/pizza-time.png" alt="">
-                <h3 class="nome-restaurante display-4 fw-bold">Pizza Time</h3>
+                <img class="logo rounded-circle" width="180px" src="./img/tudo-grelhado.png" alt="">
+                <h3 class="nome-restaurante display-4 fw-bold">Tudo Grelhado</h3>
             </div>
         </section>
         <section id="sub-menu">
             <div class="row">
                 <ul class="col-md-6">
                     <li class="">
-                        <a href="">Fazer reserva</a>
+                        <a href="./reserva.html">Fazer reserva</a>
                     </li>
                     <li class="">
                         <a href="">Ver cardápio</a>
@@ -69,8 +70,8 @@
                     </li>
                 </ul>
                 <ul class="col-md-6">
-                    <li><i class="star fas fa-star"></i>Atendimento: 4,8</li>
-                    <li><i class="star fas fa-star"></i>Comida: 5,0</li>
+                    <li><i class="star fas fa-star"></i>Atendimento: 4,5</li>
+                    <li><i class="star fas fa-star"></i>Comida: 4,9</li>
                     <li><i class="star fas fa-star"></i>Ambiente: 4,5</li>
                 </ul>
             </div>
@@ -80,20 +81,20 @@
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-map-marker-alt"></i>
                     <h4>Endereço:</h4>
-                    <p> Avenida Lorem Ipsum, 125 <br> 
+                    <p> Avenida Lorem Ipsum, 450 <br> 
                         Bairrro Lorem Ipsum </p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="far fa-clock"></i>
                     <h4>Funcionamento:</h4>
-                    <p> Terça a Domingo <br> 
-                        18h às 23h</p>
+                    <p> Todos os dias <br> 
+                        13h às 23h</p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-phone-alt"></i>
                     <h4>Contato:</h4>
-                    <p> (31) 3421-1025 <br> 
-                        @pizzariax </p>
+                    <p> (31) 3432-6235 <br> 
+                        @tudo_grelhado </p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-hand-holding-usd"></i>
