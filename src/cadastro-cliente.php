@@ -6,14 +6,15 @@ if(isset($_POST['submit'])){
 
     $nome = $_POST['nomeCliente'];
     $email = $_POST['emailCliente'];
-    $cpfCliente = $_POST['cpfCliente'];
-    $dataNasCliente = $_POST['dataNasCliente'];
-    $telCliente = $_POST['telCliente'];
-    $celCliente = $_POST['celCliente'];
-    $usuarioCliente = $_POST['usuarioCliente'];
-    $senhaCliente = $_POST['senhaCliente'];
+    $cpf = $_POST['cpfCliente'];
+    $dataNascimento = $_POST['dataNasCliente'];
+    $tel = $_POST['telCliente'];
+    $cel = $_POST['celCliente'];
+    $usuario = $_POST['usuarioCliente'];
+    $senha = $_POST['senhaCliente'];
 
-    $result = mysqli_query($conexao,"INSERT INTO cliente()");
+    $result = mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,senha) 
+    values ('$nome','$email','$cpf','$dataNascimento','$usuario','$senha')");
 
 }
 

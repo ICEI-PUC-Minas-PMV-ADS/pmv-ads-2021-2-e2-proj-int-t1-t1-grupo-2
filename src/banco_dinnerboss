@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS Cliente (
   `data_nascimento` DATE NOT NULL,
   `data_cadastro` TIMESTAMP NOT NULL,
   `foto` MEDIUMBLOB NULL,
+  `usuario` VARCHAR(30) NOT NULL,
   `senha` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`));
 
