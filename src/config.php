@@ -8,11 +8,7 @@
     $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
     if($conexao->connect_errno){
-        echo "Erro";
+        echo "Erro ao acessar o BD!";
 
-    }else{
-        echo "Conexão efetuada com sucesso";
     }
-
-
 ?>

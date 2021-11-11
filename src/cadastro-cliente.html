@@ -54,7 +54,7 @@
     <section id="form-cadastro-cliente">
       <div class="col-md-12">
         <div class="form-rest">
-          <form action="cadastro-cliente.php" method="POST">
+          <form action='cadastro-cliente.php' method="POST">
             <h2 class="display-6 fw-bold mb-3 titulo-form-cadastro">Cadastre-se:</h2>
 
             <div class="row">
@@ -73,7 +73,7 @@
               </div>
               <div class="mb-3 col-md-3">
                 <label for="fileFotoPerfil" class="form-label text-form-cadastro">Foto do perfil</label>
-                <input type="file" class="form-control form-control-sm form-cadastro-input" id="fileFotoPerfil">
+                <input type="file" name='fotoCliente' class="form-control form-control-sm form-cadastro-input" id="fileFotoPerfil">
               </div>
             </div>
 
@@ -119,7 +119,6 @@
               <button type="submit" name="submit" id="submit"
                 class="btn btn-cadastro mb-3 col-md-6 mt-4">Cadastrar</button>
             </div>
-
           </form>
   </main>
   <footer>
