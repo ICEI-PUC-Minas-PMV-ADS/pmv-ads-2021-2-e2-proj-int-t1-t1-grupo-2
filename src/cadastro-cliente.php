@@ -4,6 +4,10 @@ if(isset($_POST['submit'])){
     
     include_once('config.php');
 
+    $options = [
+        'cost' => 12,
+    ];
+
     $nome = $_POST['nomeCliente'];
     $email = $_POST['emailCliente'];
     $foto = $_POST['fotoCliente'];
@@ -12,8 +16,10 @@ if(isset($_POST['submit'])){
     $tel = $_POST['telCliente'];
     $cel = $_POST['celCliente'];
     $usuario = $_POST['usuarioCliente'];
-    $senha = $_POST['senhaCliente'];
+    //codifica a senha para maior segurança
+    $senha = password_hash($_POST['senhaCliente'], PASSWORD_BCRYPT, $options);
 
+    
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
     $verificarSeExiste = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'"));
     if($verificarSeExiste == 1){
