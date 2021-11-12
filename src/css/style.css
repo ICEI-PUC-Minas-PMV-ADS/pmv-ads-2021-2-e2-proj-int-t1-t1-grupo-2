@@ -340,5 +340,18 @@ footer h3{
   padding-top: 1rem;
 }
 
+/* Página perfil-cliente*/
 
-  
+.client-w {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #c96c20;
+  text-shadow: 5px 5px 5px #c96c20;
+}
+ 
+.form-cliente{
+    font-family: Verdana,Tahoma,sans-serif;
+    font-size: 15px;
+    background-color: #CC3300;
+    max-width: 500px;
+}
