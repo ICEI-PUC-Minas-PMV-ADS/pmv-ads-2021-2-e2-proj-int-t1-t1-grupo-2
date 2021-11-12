@@ -30,8 +30,13 @@ if(isset($_POST['submit'])){
     //faz o cadastro do novo usuario no banco de dados!
         $inserir = mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
         values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')");
+
+        session_start();
+        $_SESSION['logado'] = true;
+        $_SESSION['usuario'] = $usuario;
+
         echo "<script>
-        alert('Cadastrado com sucesso!'); location= './buscar-restaurantes.html';
+        alert('Cadastrado com sucesso!'); location= './buscar-restaurantes.php';
         </script>";
         }
     mysqli_close($conexao);

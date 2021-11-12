@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+    <?php
+
+    session_start();
+    if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
+    
+        $logado = true;
+    
+    } else {
+    
+        $logado = false;
+    }
+    
+    ?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -41,8 +55,10 @@
                     </li>
                 </ul>
                 <ul class="d-flex">
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="submit">Cadastre-se</button>
-                    <button href="" class="btn btn-login" type="submit">Login</button>                    
+                <?php if ($logado == false): ?>
+                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button href="" class="btn btn-login" type="button">Login</button>
+                    <?php endif ?>                  
                 </ul>
             </div>
             </div>
