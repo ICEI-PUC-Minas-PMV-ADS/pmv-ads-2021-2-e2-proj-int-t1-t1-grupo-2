@@ -25,11 +25,11 @@ if(isset($_POST['submit'])){
     $verificarSeExisteCpf = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE cpf = '$cpf'"));
     if($verificarSeExisteEmail == 1){
         echo "<script>
-        alert('Email já cadastrado!'); location= './cadastro-cliente.html';
+        alert('Email já cadastrado!'); location= './view/cadastro-cliente.html';
         </script>";
     }else if($verificarSeExisteCpf == 1){
         echo "<script>
-        alert('CPF já cadastrado!'); location= './cadastro-cliente.html';
+        alert('CPF já cadastrado!'); location= './view/cadastro-cliente.html';
         </script>";
     }else
     {
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
         $_SESSION['usuario'] = $usuario;
 
         echo "<script>
-        alert('Cadastrado com sucesso!'); location= './buscar-restaurantes.php';
+        alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
         </script>";
         }
     mysqli_close($conexao);

@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-menu" aria-current="page" href="./busca-restaurantes.html">Restaurantes</a>
+                        <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
@@ -58,7 +58,10 @@
                 <?php if ($logado == false): ?>
                     <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
                     <button href="" class="btn btn-login" type="button">Login</button>
-                    <?php endif ?>                  
+                <?php else:?>
+                    <button onclick="window.location.href = './perfil-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                    <button onclick="window.location.href = './sair.php'" class="btn btn-login" type="button">Sair</button>
+                <?php endif ?>             
                 </ul>
             </div>
             </div>
