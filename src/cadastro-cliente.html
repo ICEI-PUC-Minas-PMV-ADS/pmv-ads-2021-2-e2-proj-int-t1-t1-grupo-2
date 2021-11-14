@@ -43,7 +43,7 @@
         <ul class="d-flex">
           <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario"
             type="submit">Cadastre-se</button>
-          <button -googleclass="btn btn-login" type="submit">Login</button>
+          <button onclick="window.location.href = './login.html'"  class="btn btn-login" type="submit">Login</button>
         </ul>
       </div>
       </div>
@@ -52,74 +52,80 @@
 
   <main>
     <section id="form-cadastro-cliente">
-      <div class="col-md-12">
-        <div class="form-rest">
-          <form action='cadastro-cliente.php' method="POST">
-            <h2 class="display-6 fw-bold mb-3 titulo-form-cadastro">Cadastre-se:</h2>
+      <div class="col-sm-9 col-md-12 col-lg-10 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-0 fw-light fs-5">Cadastre-se!</h5>
+            <div class="form-rest">
+              <form action='cadastro-cliente.php' method="POST">
+                
+                <div class="row">
+                  <div class="mb-3 col-md-12">
+                    <label for="nomeCliente" class="form-label text-form-cadastro">Nome</label>
+                    <input type="text" name="nomeCliente" class="form-control form-cadastro-input" id="nomeCliente"
+                      required>
+                  </div>
+                </div>
 
-            <div class="row">
-              <div class="mb-3 col-md-12">
-                <label for="nomeCliente" class="form-label text-form-cadastro">Nome</label>
-                <input type="text" name="nomeCliente" class="form-control form-cadastro-input" id="nomeCliente"
-                  required>
-              </div>
-            </div>
+                <div class="row">
+                  <div class="mb-3 col-md-9">
+                    <label for="emailCliente" class="form-label text-form-cadastro">Email</label>
+                    <input type="emailC" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
+                      placeholder="exemplo@exemplo.com.br" required>
+                  </div>
+                  <div class="mb-3 col-md-3">
+                    <label for="fileFotoPerfil" class="form-label text-form-cadastro">Foto do perfil</label>
+                    <input type="file" name='fotoCliente' class="form-control form-control-sm form-cadastro-input" id="fileFotoPerfil">
+                  </div>
+                </div>
 
-            <div class="row">
-              <div class="mb-3 col-md-9">
-                <label for="emailCliente" class="form-label text-form-cadastro">Email</label>
-                <input type="emailC" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
-                  placeholder="exemplo@exemplo.com.br" required>
-              </div>
-              <div class="mb-3 col-md-3">
-                <label for="fileFotoPerfil" class="form-label text-form-cadastro">Foto do perfil</label>
-                <input type="file" name='fotoCliente' class="form-control form-control-sm form-cadastro-input" id="fileFotoPerfil">
-              </div>
-            </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="cpfCliente" class="form-label text-form-cadastro">CPF</label>
+                    <input type="text" name="cpfCliente" class="form-control form-cadastro-input" id="cpfCliente"
+                      placeholder="___.___.___-__" required>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="datanascCliente" clnass="form-label text-form-cadastro">Data de Nascimento</label>
+                    <input type="text" name="dataNasCliente" class="form-control form-cadastro-input" id="datanascCliente"
+                      placeholder="__/__/____" required>
+                  </div>
+                </div>
 
-            <div class="row">
-              <div class="mb-3 col-md-6">
-                <label for="cpfCliente" class="form-label text-form-cadastro">CPF</label>
-                <input type="text" name="cpfCliente" class="form-control form-cadastro-input" id="cpfCliente"
-                  placeholder="___.___.___-__" required>
-              </div>
-              <div class="mb-3 col-md-6">
-                <label for="datanascCliente" clnass="form-label text-form-cadastro">Data de Nascimento</label>
-                <input type="text" name="dataNasCliente" class="form-control form-cadastro-input" id="datanascCliente"
-                  placeholder="__/__/____" required>
-              </div>
-            </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="telCliente" class="form-label text-form-cadastro">Telefone</label>
+                    <input type="tel" name="telCliente" class="form-control form-cadastro-input" id="telCliente"
+                      placeholder="(__)_____-_____" optional>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="celCliente" class="form-label text-form-cadastro">Celular</label>
+                    <input type="tel" name="celCliente" class="form-control form-cadastro-input" id="celCliente"
+                      placeholder="(__)_____-_____" required>
+                  </div>
+                </div>
 
-            <div class="row">
-              <div class="mb-3 col-md-6">
-                <label for="telCliente" class="form-label text-form-cadastro">Telefone</label>
-                <input type="tel" name="telCliente" class="form-control form-cadastro-input" id="telCliente"
-                  placeholder="(__)_____-_____" optional>
-              </div>
-              <div class="mb-3 col-md-6">
-                <label for="celCliente" class="form-label text-form-cadastro">Celular</label>
-                <input type="tel" name="celCliente" class="form-control form-cadastro-input" id="celCliente"
-                  placeholder="(__)_____-_____" required>
-              </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="usuarioCliente" class="form-label text-form-cadastro">Usuário</label>
+                    <input type="text" name="usuarioCliente" class="form-control form-cadastro-input" id="usuarioCliente"
+                      required>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="senhaCliente" class="form-label text-form-cadastro">Senha</label>
+                    <input type="password" name="senhaCliente" class="form-control form-cadastro-input" id="senhaCliente"
+                      required>
+                  </div>
+                </div>
+                <div>
+                  <button type="submit" name="submit" id="submit"
+                    class="btn btn-cadastro mb-3 col-md-6 mt-4">Cadastrar</button>
+                </div>
+              </form>
             </div>
-
-            <div class="row">
-              <div class="mb-3 col-md-6">
-                <label for="usuarioCliente" class="form-label text-form-cadastro">Usuário</label>
-                <input type="text" name="usuarioCliente" class="form-control form-cadastro-input" id="usuarioCliente"
-                  required>
-              </div>
-              <div class="mb-3 col-md-6">
-                <label for="senhaCliente" class="form-label text-form-cadastro">Senha</label>
-                <input type="password" name="senhaCliente" class="form-control form-cadastro-input" id="senhaCliente"
-                  required>
-              </div>
-            </div>
-            <div>
-              <button type="submit" name="submit" id="submit"
-                class="btn btn-cadastro mb-3 col-md-6 mt-4">Cadastrar</button>
-            </div>
-          </form>
+          </div>
+        </div>
+      </div>   
   </main>
   <footer>
     <div id="footer-area">
