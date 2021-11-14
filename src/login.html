@@ -50,40 +50,43 @@
     <main>
         <body>
             <div class="container">
-              <div class="row">
-                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+              <div class="col-sm-9 col-md-12 col-lg-10 mx-auto">
                   <div class="card border-0 shadow rounded-3 my-5">
                     <div class="card-body p-4 p-sm-5">
-                      <h5 class="card-title text-center mb-5 fw-light fs-5">Seja Bem-Vindo(a)!</h5>
-                      <p style="text-align:center">Faça seu Login!</p>
+                      <h5 class="card-title text-center mb-1 fw-light fs-5">Seja Bem-Vindo(a)!</h5>
+                      <p class="card-title text-center mb-1 fw-light fs-5">Faça seu Login!</p>
+                      <div class="form-rest">
                       <form>
-                        <div class="endemail">
-                          <input type="email" class="form-control" id="floatingInput" placeholder="nomealeatorio@email.com">
+                          <div class="mb-3 col-md-12">
+                            <label for="emailCliente" class="form-label text-form-cadastro">Email</label>
+                            <input type="emailC" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
+                              placeholder="exemplo@exemplo.com.br" required>
+                          </div>
+              
+                          <div class="mb-3 col-md-12">
+                            <label for="senhaCliente" class="form-label text-form-cadastro">Senha</label>
+                            <input type="password" name="senhaCliente" class="form-control form-cadastro-input" id="senhaCliente"
+                              required>
+                          </div>
  
+                        <div class="mb-3 col-md-12">
+                          <button class="btn btn-cadastro mb-3 col-md-6 mt-4" type="submit">Login</button>
                         </div>
-                        <div class="endsenha">
-                          <input type="password" class="form-control" id="floatingPassword" placeholder="senha">
-                        </div>
- 
-                        <div class="d-grid">
-                          <button class="btn btn-primary btnn-login text-uppercase fw-bold" type="submit">Login</button>
-                        </div>
-                        <hr class="my-4">
-                        <div class="d-grid mb-2">
-                          <button class="btn btnn-google btnn-login text-uppercase fw-bold" type="submit">
-                            <i class="fab fa-google me-2"></i> Login com Google
+                        <div class="mb-3 col-md-12">
+                          <button class="btn btn-cadastro-google mb-3 col-md-6 mt-4" type="submit">
+                            <i class="fab fa-google me-2 "></i> Login com Google
                           </button>
                         </div>
-                        <div class="d-grid">
-                          <button class="btn btnn-facebook btnn-login text-uppercase fw-bold" type="submit">
+                      <div class="mb-3 col-md-12">
+                          <button class="btn btn-cadastro mb-3 col-md-6 mt-4" type="submit">
                             <i class="fab fa-facebook-f me-2"></i> Login com Facebook
                           </button>
                         </div>
                       </form>
                     </div>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
         </body>
     </main>
