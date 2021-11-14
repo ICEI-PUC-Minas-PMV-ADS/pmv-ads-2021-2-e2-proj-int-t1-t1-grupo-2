@@ -57,10 +57,13 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                     </li>
                 </ul>
                 <ul class="d-flex">
-                 <?php if ($logado == false): ?>
+                <?php if ($logado == false): ?>
                     <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
                     <button href="" class="btn btn-login" type="button">Login</button>
-                    <?php endif ?>
+                <?php else:?>
+                    <button onclick="window.location.href = './perfil-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                    <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
+                <?php endif ?>
                 </ul>
             </div>
             </div>
