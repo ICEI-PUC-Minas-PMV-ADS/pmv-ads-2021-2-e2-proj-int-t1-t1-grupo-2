@@ -21,12 +21,18 @@ if(isset($_POST['submit'])){
 
     
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
-    $verificarSeExiste = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'"));
-    if($verificarSeExiste == 1){
+    $verificarSeExisteEmail = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'"));
+    $verificarSeExisteCpf = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE cpf = '$cpf'"));
+    if($verificarSeExisteEmail == 1){
         echo "<script>
         alert('Email já cadastrado!'); location= './cadastro-cliente.html';
         </script>";
-    }else{
+    }else if($verificarSeExisteCpf == 1){
+        echo "<script>
+        alert('CPF já cadastrado!'); location= './cadastro-cliente.html';
+        </script>";
+    }else
+    {
     //faz o cadastro do novo usuario no banco de dados!
         $inserir = mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
         values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')");
