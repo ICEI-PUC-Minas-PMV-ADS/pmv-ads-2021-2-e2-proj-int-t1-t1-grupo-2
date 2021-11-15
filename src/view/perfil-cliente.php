@@ -97,7 +97,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                       value = '<?php echo $_SESSION['cpf']?>' required>
                   </div>
                   <div class="mb-3 col-md-6">
-                    <label for="datanascCliente" clnass="form-label text-form-cadastro">Data de Nascimento</label>
+                    <label for="datanasCliente" class="form-label text-form-cadastro">Data de Nascimento</label>
                     <input type="text" name="dataNasCliente" class="form-control form-cadastro-input" id="datanascCliente"
                     value = '<?php echo $_SESSION['data_nascimento']?>' placeholder="__/__/____" required>
                   </div>
