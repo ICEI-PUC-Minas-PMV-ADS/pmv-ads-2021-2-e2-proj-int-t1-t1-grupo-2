@@ -57,11 +57,11 @@
                       <h5 class="card-title text-center mb-1 fw-light fs-5">Seja Bem-Vindo(a)!</h5>
                       <p class="card-title text-center mb-1 fw-light fs-5">Faça seu Login!</p>
                       <div class="form-rest">
-                      <form action="login.php" method="POST">
+                      <form action="../controller_bd.php" method="POST">
 
                           <div class="mb-3 col-md-12">
                             <label for="emailCliente" class="form-label text-form-cadastro">Email</label>
-                            <input type="emailC" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
+                            <input type="email" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
                               placeholder="exemplo@exemplo.com.br" required>
                           </div>
               
@@ -72,16 +72,16 @@
                           </div>
  
                         <div class="mb-3 col-md-12">
-                          <button class="btn btn-cadastro mb-3 col-md-6 mt-4" type="submit" name="submit" id="submit">Login</button>
+                          <button class="btn btn-cadastro mb-3 col-md-6 mt-4" type="submit" name="entrar">Entrar</button>
                         </div>
                         <div class="mb-3 col-md-12">
                           <button class="btn btn-cadastro-google mb-3 col-md-6 mt-4" type="submit">
-                            <i class="fab fa-google me-2 "></i> Login com Google
+                            <i class="fab fa-google me-2 "></i> Entrar com Google
                           </button>
                         </div>
                       <div class="mb-3 col-md-12">
                           <button class="btn btn-cadastro mb-3 col-md-6 mt-4" type="submit">
-                            <i class="fab fa-facebook-f me-2"></i> Login com Facebook
+                            <i class="fab fa-facebook-f me-2"></i> Entrar com Facebook
                           </button>
                         </div>
                       </form>

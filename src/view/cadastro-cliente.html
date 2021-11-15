@@ -43,7 +43,7 @@
         <ul class="d-flex">
           <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario"
             type="submit">Cadastre-se</button>
-          <button onclick="window.location.href = './login.html'"  class="btn btn-login" type="submit">Login</button>
+          <button onclick="window.location.href = './login.html'"  class="btn btn-login" type="submit">Entrar</button>
         </ul>
       </div>
       </div>
@@ -57,7 +57,7 @@
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-0 fw-light fs-5">Cadastre-se!</h5>
             <div class="form-rest">
-              <form action='../cadastro-cliente.php' method="POST">
+              <form action='../controller_bd.php' method="POST">
                 
                 <div class="row">
                   <div class="mb-3 col-md-12">
@@ -70,7 +70,7 @@
                 <div class="row">
                   <div class="mb-3 col-md-9">
                     <label for="emailCliente" class="form-label text-form-cadastro">Email</label>
-                    <input type="emailC" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
+                    <input type="email" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
                       placeholder="exemplo@exemplo.com.br" required>
                   </div>
                   <div class="mb-3 col-md-3">
@@ -118,7 +118,7 @@
                   </div>
                 </div>
                 <div>
-                  <button type="submit" name="submit" id="submit"
+                  <button type="submit" name="cadastrar"
                     class="btn btn-cadastro mb-3 col-md-6 mt-4">Cadastrar</button>
                 </div>
               </form>
