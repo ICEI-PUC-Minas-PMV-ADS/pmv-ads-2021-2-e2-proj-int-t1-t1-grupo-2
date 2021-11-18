@@ -1,10 +1,10 @@
 <?php
 
+include_once('config.php');
+
 //CADASTRO DE NOVOS USUÁRIOS
 if(isset($_POST['cadastrar'])){
     
-    include_once('config.php');
-
     $options = [
         'cost' => 12,
     ];
@@ -46,7 +46,8 @@ if(isset($_POST['cadastrar'])){
     {
     //faz o cadastro do novo usuario no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
-    values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')")){
+    values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')") AND (mysqli_query($conexao,"INSERT INTO telefone(numero) 
+    values ('$tel'), ('$cel')"))){
         session_start();
         $_SESSION['logado'] = true;
         $_SESSION['usuario'] = $usuario;
@@ -70,8 +71,6 @@ if(isset($_POST['cadastrar'])){
 //LOGIN DOS USUÁRIOS
 if(isset($_POST['entrar'])){
     
-    include_once('config.php');
-
     $options = [
         'cost' => 12,
     ];
@@ -116,8 +115,6 @@ if(isset($_POST['entrar'])){
 //EXCLUIR USUÁRIO
 if(isset($_POST['delete'])){
     
-    include_once('config.php');
-
     $options = [
         'cost' => 12,
     ];
@@ -137,6 +134,43 @@ if(isset($_POST['delete'])){
                 session_destroy();
                 echo "<script>
                 alert('Conta Excluida com Sucesso!'); location= './view/index.php';
+                </script>";
+            }
+        }else{
+            echo "<script>
+            alert('Senha incorreta!'); location= './view/perfil-cliente.php';
+            </script>";
+        }
+    }
+    mysqli_close($conexao);
+}
+
+//ATUALIZAR DADOS DO USUÁRIO
+if(isset($_POST['atualizar'])){
+    
+    $options = [
+        'cost' => 12,
+    ];
+
+    $nome = $_POST['nomeCliente'];
+    $usuario = $_POST['usuarioCliente'];
+    $dataNascimento = $_POST['dataNasCliente'];
+    $email = $_POST['emailCliente'];
+    $cpf = $_POST['cpfCliente'];
+    $senha = $_POST['senhaCliente'];
+
+    $dados = mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email' AND cpf = '$cpf'");
+    if(mysqli_num_rows($dados) == 1){
+        // transforma os dados em um array
+        $linha = mysqli_fetch_assoc($dados);
+        if (password_verify($senha, $linha['senha'])) {
+            if(mysqli_query($conexao,"UPDATE cliente SET nome = '$nome', data_nascimento = '$dataNascimento', usuario = '$usuario' WHERE email = '$email' AND cpf = '$cpf'")){
+                session_start();
+                $_SESSION['usuario'] = $usuario;
+                $_SESSION['nome'] = $nome;
+                $_SESSION['data_nascimento'] = $dataNascimento;
+                echo "<script>
+                alert('Conta Atualizada com Sucesso!'); location= './view/perfil-cliente.php';
                 </script>";
             }
         }else{

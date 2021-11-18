@@ -123,7 +123,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                       value = '<?php echo $_SESSION['usuario']?>' required>
                   </div>
                   <div class="mb-3 col-md-6">
-                    <label for="senhaCliente" class="form-label text-form-cadastro">Alterar Senha</label>
+                    <label for="senhaCliente" class="form-label text-form-cadastro">Senha</label>
                     <input type="password" name="senhaCliente" class="form-control form-cadastro-input" id="senhaCliente"
                       required>
                   </div>
@@ -131,7 +131,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 <div class='btn-group'>
                     <button type="submit" name="delete"
                     class="btn btn-cadastro-google mb-3 col-md-6 mt-4">Excluir Conta</button>
-                  <button type="submit" name="submit"
+                  <button type="submit" name="atualizar"
                     class="btn btn-cadastro mb-3 col-md-6 mt-4">Atualizar Dados</button>
                 </div>
               </form>
