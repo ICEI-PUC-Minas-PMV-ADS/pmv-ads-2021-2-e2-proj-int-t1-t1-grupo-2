@@ -9,6 +9,5 @@
 
     if($conexao->connect_errno){
         echo "Erro ao acessar o BD!";
-
     }
 ?>

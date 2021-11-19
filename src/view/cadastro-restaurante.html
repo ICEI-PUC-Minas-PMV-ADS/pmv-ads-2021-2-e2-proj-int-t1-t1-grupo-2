@@ -53,7 +53,7 @@
         <section id="form-cadastro-rest">
             <div class="col-md-12">
                 <div class="form-rest">
-                    <form>
+                    <form action="../controller_bd_restaurante.php" method="post">
                         <h2 class="display-6 fw-bold mb-3 titulo-form-cadastro">Cadastre seu restaurante:</h2>
                         <div class="row">
                             <div class="mb-3 col-md-9">
@@ -90,38 +90,32 @@
                             <input type="email" class="form-control form-cadastro-input" id="emailRestaurante" placeholder="exemplo@exemplo.com.br" required>
                         </div>
                         <div class="row">
-                            <div class="mb-3 col-md-10">
-                                <label for="enderecoRestaurante" class="form-label text-form-cadastro">Rua/Avenida</label>
+                            <div class="mb-3">
+                                <label for="enderecoRestaurante" class="form-label text-form-cadastro">Logradouro</label>
                                 <input type="text" class="form-control form-cadastro-input" id="enderecoRestaurante" required>
                             </div>
-                            <div class="mb-3 col-md-2">
-                                <label for="numeroRestaurante" class="form-label text-form-cadastro">Número</label>
-                                <input type="text" class="form-control form-cadastro-input" id="numeroRestaurante" required>
-                            </div>                            
+                          
                         </div>
                         <div class="row">
-                            <div class="mb-3 col-md-4">
-                                <label for="complementoRestaurante" class="form-label text-form-cadastro">Complemento</label>
-                                <input type="text" class="form-control form-cadastro-input" id="complementoRestaurante">
-                            </div>
-                            <div class="mb-3 col-md-5">
+                            <div class="mb-3 col-md-3">
                                 <label for="bairroRestaurante" class="form-label text-form-cadastro">Bairro</label>
                                 <input type="text" class="form-control form-cadastro-input" id="bairroRestaurante" required>
+                            </div>
+                            
+                            <div class="mb-3 col-md-4">
+                                <label for="cidadeRestaurante" class="form-label text-form-cadastro">Cidade</label>
+                                <input type="text" class="form-control form-cadastro-input" id="cidadeRestaurante" required>
                             </div>
                             <div class="mb-3 col-md-3">
                                 <label for="cepRestaurante" class="form-label text-form-cadastro">Cep</label>
                                 <input type="text" class="form-control form-cadastro-input" id="cepRestaurante" placeholder="_____-___" required>
                             </div>
-                        </div>    
-                        <div class="row">    
-                            <div class="mb-3 col-md-4">
-                                <label for="cidadeRestaurante" class="form-label text-form-cadastro">Cidade</label>
-                                <input type="text" class="form-control form-cadastro-input" id="cidadeRestaurante" required>
-                            </div>
                             <div class="mb-3 col-md-2">
                                 <label for="estadoRestaurante" class="form-label text-form-cadastro">Estado (UF)</label>
                                 <input type="text" class="form-control form-cadastro-input" id="estadoRestaurante" required>
                             </div>
+                        </div>    
+                        <div class="row">
                             <div class="mb-3 col-md-3">
                                 <label for="horarioAbrirRestaurante" class="form-label text-form-cadastro">Horário de abrir</label>
                                 <input type="text" class="form-control form-cadastro-input" id="horarioAbrirRestaurante" placeholder="00h00" required>
@@ -130,6 +124,7 @@
                                 <label for="horarioFecharRestaurante" class="form-label text-form-cadastro">Horário de fechar</label>
                                 <input type="text" class="form-control form-cadastro-input" id="horarioFecharRestaurante" placeholder="00h00" required>
                             </div>
+
                         </div>                        
                         <div class="row">
                             <label for="diaFuncionamentoRestaurante" class="form-label text-form-cadastro">Dias da semana</label>

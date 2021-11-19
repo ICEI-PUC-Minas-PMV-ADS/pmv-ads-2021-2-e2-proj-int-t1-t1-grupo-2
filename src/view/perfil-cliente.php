@@ -73,7 +73,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-0 fw-light fs-5">Minha Conta</h5>
             <div class="form-rest">
-              <form action='../controller_bd.php' method="POST">
+              <form action='../controller_bd_cliente.php' method="POST">
                 
                 <div class="row">
                   <div class="mb-3 col-md-12">
