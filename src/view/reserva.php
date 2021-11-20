@@ -32,7 +32,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     <script src="js/script.js"></script>    
     <script src="https://kit.fontawesome.com/92fd3400ef.js" crossorigin="anonymous"></script>
 </head>
- 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -66,7 +65,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             </div>
         </nav>
     </header>
- 
     <main>
       <section id="form-reserva">
         <div class="col-md-12">
@@ -80,7 +78,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                   <input type="text" class="form-control form-cadastro-input" id="nomeClienteReserva" required>
                 </div>
               </div>
-
               <div class="row">
                 <div class="mb-3 col-md-6">
                   <label for="telClienteReserva" class="form-label text-form-cadastro">Telefone</label>
@@ -126,14 +123,9 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 <div class="mb-3 col-md-6">
                   <button type="submit" class="btn btn-cadastro mb-3 col-md-6 mt-4">Reservar</button>
                 </div>
-              </div>
-                                                                     
+              </div>                                                           
           </form> 
-                   
-          
-
-    </main>
-    
+    </main> 
     <footer>
         <div id="footer-area">
             <div class="container-fluid">
@@ -150,7 +142,5 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             </div>
         </div>
     </footer>
- 
-</body>
- 
+</body> 
 </html>
