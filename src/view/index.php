@@ -98,7 +98,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <img class="" width="50%" src="./img/depoimento-pedro.png">
           </div>
           <div class="col-lg-6 d-flex justify-content-center align-items-center py-3">
-            <img class="" width="50%" src="./img/depoimento-claudia.png">
+            <!-- <img class="" width="50%" src="./img/depoimento-claudia.png"> -->
           </div>
         </div>
       </section>
