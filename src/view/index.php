@@ -98,7 +98,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <img class="" width="50%" src="./img/depoimento-pedro.png">
           </div>
           <div class="col-lg-6 d-flex justify-content-center align-items-center py-3">
-            <!-- <img class="" width="50%" src="./img/depoimento-claudia.png"> -->
+            <img class="" width="50%" src="./img/depoimento-claudia.png">
           </div>
         </div>
       </section>
@@ -115,7 +115,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
       </section>
     </main>
 
-    <!--<footer>
+    <footer>
         <div id="footer-area">
             <div class="container-fluid">
                 <div class="row">
@@ -130,6 +130,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 </div>
             </div>
         </div>
-    </footer>-->
+    </footer>
  </body>
 </html>
