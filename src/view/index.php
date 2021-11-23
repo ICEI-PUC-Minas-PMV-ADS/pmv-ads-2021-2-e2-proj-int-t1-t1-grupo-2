@@ -115,7 +115,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
       </section>
     </main>
 
-    <footer>
+    <!--<footer>
         <div id="footer-area">
             <div class="container-fluid">
                 <div class="row">
@@ -130,6 +130,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>-->
  </body>
 </html>
