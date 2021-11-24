@@ -1,0 +1,9 @@
+DirectoryIndex index.php index.html index.htm index2.html
+
+ErrorDocument 403 https://dinnerboss.rf.gd/erro.html
+ErrorDocument 404 https://dinnerboss.rf.gd/erro.html
+ErrorDocument 500 https://dinnerboss.rf.gd/erro.html
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://dinnerboss.rf.gd/$1 [R,L]
