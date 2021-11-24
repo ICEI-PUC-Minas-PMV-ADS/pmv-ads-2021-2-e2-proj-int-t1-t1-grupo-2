@@ -30,7 +30,7 @@ if(isset($_POST['cadastrar'])){
         if(resultado == true){
             location= './view/login.html';
         }else{
-            location= './view/cadastro-cliente.html';
+            window. history. back();
         }
         </script>";
     }else if($verificarSeExisteCpf == 1){
@@ -39,7 +39,7 @@ if(isset($_POST['cadastrar'])){
         if(resultado == true){
             location= './view/login.html';
         }else{
-            location= './view/cadastro-cliente.html';
+            window. history. back();
         }
         </script>";
     }else
@@ -96,7 +96,7 @@ if(isset($_POST['entrar'])){
             </script>";
         }else{
             echo "<script>
-            alert('Senha incorreta!'); location= './view/login.html';
+            alert('Senha incorreta!'); window. history. back();
             </script>";
         }
     }else{
@@ -105,7 +105,7 @@ if(isset($_POST['entrar'])){
         if(resultado == true){
             location= './view/cadastro-cliente.html';
         }else{
-            location= './view/login.html';
+            window. history. back();
         }
         </script>";
     }
@@ -138,7 +138,7 @@ if(isset($_POST['delete'])){
             }
         }else{
             echo "<script>
-            alert('Senha incorreta!'); location= './view/perfil-cliente.php';
+            alert('Senha incorreta!'); window. history. back();
             </script>";
         }
     }
@@ -175,7 +175,7 @@ if(isset($_POST['atualizar'])){
             }
         }else{
             echo "<script>
-            alert('Senha incorreta!'); location= './view/perfil-cliente.php';
+            alert('Senha incorreta!'); window. history. back();
             </script>";
         }
     }

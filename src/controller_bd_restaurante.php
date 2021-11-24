@@ -2,64 +2,59 @@
 
 include_once('config.php');
 
-//CADASTRO DE NOVOS USUÁRIOS
 if(isset($_POST['cadastrar'])){
-    
-    $options = [
-        'cost' => 12,
-    ];
 
-    $nome = $_POST['nomeCliente'];
-    $email = $_POST['emailCliente'];
-    $foto = $_POST['fotoCliente'];
-    $cpf = $_POST['cpfCliente'];
-    $dataNascimento = $_POST['dataNasCliente'];
-    $tel = $_POST['telCliente'];
-    $cel = $_POST['celCliente'];
-    $usuario = $_POST['usuarioCliente'];
-    //codifica a senha para maior segurança
-    $senha = password_hash($_POST['senhaCliente'], PASSWORD_BCRYPT, $options);
+    $nome = $_POST['nomeRestaurante'];
+    $logo = $_POST['logoRestaurante'];
+    $cnpj = $_POST['cnpjRestaurante'];
+    $tel = $_POST['telRestaurante'];
+    $redeSocial = $_POST['redeSocialRestaurante'];
+    $site = $_POST['siteRestaurante'];
+    $email = $_POST['emailRestaurante'];
+    $logradouro = $_POST['logradouroRestaurante'];
+    $bairro = $_POST['bairroRestaurante'];
+    $cidade = $_POST['cidadeRestaurante'];
+    $cep = $_POST['cepRestaurante'];
+    $estado = $_POST['estadoRestaurante'];
+    $horarioAbrir = $_POST['horarioAbrirRestaurante'];
+    $horarioFechar = $_POST['horarioFecharRestaurante'];
+    $diasDaSemana = $_POST['diasDaSemanaRestaurante'];
+    $diasDaSemanaTexto = '';
+    $formasDePagamento = $_POST['formasDePagamento'];
+    $formasDePagamentoTexto = '';
 
-    
+
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
-    $verificarSeExisteEmail = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'"));
-    $verificarSeExisteCpf = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE cpf = '$cpf'"));
+    $verificarSeExisteCnpj = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE cnpj = '$cnpj'"));
+    $verificarSeExisteEmail = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE email = '$email'"));
     if($verificarSeExisteEmail == 1){
         echo "<script>
-        var resultado = confirm('Email já cadastrado, deseja entrar?');
-        if(resultado == true){
-            location= './view/login.html';
-        }else{
-            location= './view/cadastro-cliente.html';
-        }
+        alert('Email já cadastrado!'); window. history. back();
         </script>";
-    }else if($verificarSeExisteCpf == 1){
+    }else if($verificarSeExisteCnpj == 1){
         echo "<script>
-        var resultado = confirm('CPF já cadastrado, deseja entrar?');
-        if(resultado == true){
-            location= './view/login.html';
-        }else{
-            location= './view/cadastro-cliente.html';
-        }
+        alert('CNPJ já cadastrado!'); window. history. back();
         </script>";
     }else
     {
-    //faz o cadastro do novo usuario no banco de dados!
-    if(mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
-    values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')"))
-    {
-        session_start();
-        $_SESSION['logado'] = true;
-        $_SESSION['usuario'] = $usuario;
-        $_SESSION['nome'] = $nome;
-        $_SESSION['email'] = $email;
-        $_SESSION['cpf'] = $cpf;
-        $_SESSION['data_nascimento'] = $dataNascimento;
-        $_SESSION['celular'] = $cel;
-        $_SESSION['telefone'] = $tel;
 
+    foreach($diasDaSemana as $chk1)  
+    {  
+      $diasDaSemanaTexto .= $chk1.",";  
+    }
+    foreach($formasDePagamento as $chk2)  
+    {  
+      $formasDePagamentoTexto .= $chk2.",";  
+    } 
+
+   //faz o cadastro do novo usuario no banco de dados!
+    if(mysqli_query($conexao,"INSERT INTO estabelecimento(nome,logo,cnpj,tel,redeSocial,site,email,logradouro,bairro,cidade,
+    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento) 
+    values ('$nome','$logo','$cnpj','$tel','$redeSocial','$site','$email','$logradouro','$bairro','$cidade','$cep','$estado','$horarioAbrir',
+    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto')"))
+    {
         echo "<script>
-        alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
+        alert('Restaurante Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
         </script>";
         } else{
             echo "ERRO: $sql. " . mysqli_error($conexao);
