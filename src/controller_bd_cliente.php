@@ -11,7 +11,7 @@ if(isset($_POST['cadastrar'])){
 
     $nome = $_POST['nomeCliente'];
     $email = $_POST['emailCliente'];
-    $foto = $_POST['fotoCliente'];
+    $foto = $_FILES['fotoCliente'];
     $cpf = $_POST['cpfCliente'];
     $dataNascimento = $_POST['dataNasCliente'];
     $tel = $_POST['telCliente'];
@@ -19,6 +19,7 @@ if(isset($_POST['cadastrar'])){
     $usuario = $_POST['usuarioCliente'];
     //codifica a senha para maior segurança
     $senha = password_hash($_POST['senhaCliente'], PASSWORD_BCRYPT, $options);
+
 
     
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
@@ -44,9 +45,17 @@ if(isset($_POST['cadastrar'])){
         </script>";
     }else
     {
+        if (isset($_FILES['fotoCliente'])){
+
+            $extensao = strtolower(substr($_FILES['fotoCliente']['name'], -4));
+            $novo_nome = md5(time()) . $extensao;
+            $diretorio = "pictures/";
+    
+            move_uploaded_file($_FILES['fotoCliente']['tmp_name'], $diretorio.$novo_nome);
+        }
     //faz o cadastro do novo usuario no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
-    values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')"))
+    values ('$nome','$email','$cpf','$dataNascimento','$novo_nome','$usuario','$senha')"))
     {
         session_start();
         $_SESSION['logado'] = true;

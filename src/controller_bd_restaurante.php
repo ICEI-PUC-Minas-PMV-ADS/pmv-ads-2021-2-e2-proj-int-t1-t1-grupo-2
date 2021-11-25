@@ -48,45 +48,25 @@ if(isset($_POST['cadastrar'])){
       $formasDePagamentoTexto .= $chk2.",";  
     }
 
-    define('TAMANHO_MAXIMO', (2 * 1024 * 1024));
+    if (isset($_FILES['logoRestaurante'])){
 
-    if (!isset($_FILES['logoRestaurante']))
-{
-    echo print_r('Selecione uma imagem');
-    exit;
-}
-    $name = $logo['name'];
-    $tipo = $logo['type'];
-    $tamanho = $logo['size'];
-    // Validações básicas
-    // Formato
-    if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $tipo))
-    {
-        echo print_r('Isso não é uma imagem válida');
-        exit;
+        $extensao = strtolower(substr($_FILES['logoRestaurante']['name'], -4));
+        $novo_nome = md5(time()) . $extensao;
+        $diretorio = "pictures/";
+
+        move_uploaded_file($_FILES['logoRestaurante']['tmp_name'], $diretorio.$novo_nome);
     }
-    // Tamanho
-    if ($tamanho > TAMANHO_MAXIMO)
-    {
-        echo print_r('A imagem deve possuir no máximo 1 MB');
-        exit;
-    }
-    // Transformando foto em dados (binário)
-    $conteudo = file_get_contents($logo['tmp_name']);
-    $titulo = filter_var($conteudo, FILTER_SANITIZE_MAGIC_QUOTES);
-    $logoConvertida = addslashes($conteudo);
 
    //faz o cadastro do novo usuario no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO estabelecimento(nome,logo,cnpj,tel,redeSocial,site,email,logradouro,bairro,cidade,
     cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento) 
-    values ('$nome','$titulo','$cnpj','$tel','$redeSocial','$site','$email','$logradouro','$bairro','$cidade','$cep','$estado','$horarioAbrir',
+    values ('$nome','$novo_nome','$cnpj','$tel','$redeSocial','$site','$email','$logradouro','$bairro','$cidade','$cep','$estado','$horarioAbrir',
     '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto')"))
     {
         echo "<script>
         alert('Restaurante Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
         </script>";
     } else{
-            print_r($logoConvertida);
             echo "ERRO: " . mysqli_error($conexao);
     }  
 }

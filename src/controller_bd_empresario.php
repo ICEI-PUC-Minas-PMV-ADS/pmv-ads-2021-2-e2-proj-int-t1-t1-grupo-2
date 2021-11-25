@@ -11,7 +11,7 @@ if(isset($_POST['cadastrar'])){
 
     $nome = $_POST['nomeCliente'];
     $email = $_POST['emailCliente'];
-    $foto = $_POST['fotoCliente'];
+    $foto = $_FILES['fotoEmpresario'];
     $cpf = $_POST['cpfCliente'];
     $dataNascimento = $_POST['dataNasCliente'];
     $tel = $_POST['telCliente'];
@@ -44,9 +44,17 @@ if(isset($_POST['cadastrar'])){
         </script>";
     }else
     {
+        if (isset($_FILES['fotoEmpresario'])){
+
+            $extensao = strtolower(substr($_FILES['fotoEmpresario']['name'], -4));
+            $novo_nome = md5(time()) . $extensao;
+            $diretorio = "pictures/";
+    
+            move_uploaded_file($_FILES['fotoEmpresario']['tmp_name'], $diretorio.$novo_nome);
+        }
     //faz o cadastro do novo usuario no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
-    values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')") AND (mysqli_query($conexao,"INSERT INTO telefone(numero) 
+    values ('$nome','$email','$cpf','$dataNascimento','$novo_nome','$usuario','$senha')") AND (mysqli_query($conexao,"INSERT INTO telefone(numero) 
     values ('$tel'), ('$cel')"))){
         session_start();
         $_SESSION['logado'] = true;
