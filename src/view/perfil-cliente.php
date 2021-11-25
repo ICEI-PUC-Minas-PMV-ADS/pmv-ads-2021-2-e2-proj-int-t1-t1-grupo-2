@@ -14,7 +14,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
     $logado = false;
 }
-    
+
 ?>
  
 <head>
@@ -63,33 +63,34 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             </div>
         </nav>
     </header>
- 
- 
     <body>
     <main>
     <section id="form-cadastro-cliente">
       <div class="col-sm-9 col-md-12 col-lg-10 mx-auto">
-        <div class="card border-0 shadow rounded-3 my-5">
-          <div class="card-body p-4 p-sm-5">
-            <h5 class="card-title text-center mb-0 fw-light fs-5">Minha Conta</h5>
+        <div class="card border-0 shadow rounded-3 ">
+          <div class="card-body p-4 p-sm-2">
             <div class="form-rest">
               <form action='../controller_bd_cliente.php' method="POST">
-                
+              <div class="row">
+              <div class="mb-3 col-md-3">
+                <img class="img-fluid img-thumbnail rounded mx-auto d-block" height="150px" width="150px" src="../<?php echo $_SESSION['foto']?>">    
+              </div>
+              <div class="mb-3 col-md-9">
                 <div class="row">
-                  <div class="mb-3 col-md-12">
+                  <div class="mb-3">
                     <label for="nomeCliente" class="form-label text-form-cadastro">Nome</label>
                     <input type="text" name="nomeCliente" class="form-control form-cadastro-input" id="nomeCliente"
                     value = '<?php echo $_SESSION['nome']?>' required>
                   </div>
                 </div>
-
                 <div class="row">
-                  <div class="mb-3 col-md-12">
+                  <div class="mb-3">
                     <label for="emailCliente" class="form-label text-form-cadastro">Email</label>
                     <input readonly type="email" name="emailCliente" class="form-control form-cadastro-input" id="emailCliente"
                       value = '<?php echo $_SESSION['email']?>' required>
                   </div>
-
+              </div>
+              </div>
                 <div class="row">
                   <div class="mb-3 col-md-6">
                     <label for="cpfCliente" class="form-label text-form-cadastro">CPF</label>

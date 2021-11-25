@@ -52,7 +52,10 @@ if(isset($_POST['cadastrar'])){
             $diretorio = "pictures/";
     
             move_uploaded_file($_FILES['fotoCliente']['tmp_name'], $diretorio.$novo_nome);
+        }else{
+            $novo_nome = null;
         }
+        
     //faz o cadastro do novo usuario no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
     values ('$nome','$email','$cpf','$dataNascimento','$novo_nome','$usuario','$senha')"))
@@ -66,12 +69,13 @@ if(isset($_POST['cadastrar'])){
         $_SESSION['data_nascimento'] = $dataNascimento;
         $_SESSION['celular'] = $cel;
         $_SESSION['telefone'] = $tel;
+        $_SESSION['foto'] = $diretorio.$novo_nome;
 
         echo "<script>
         alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
         </script>";
         } else{
-            echo "ERRO: $sql. " . mysqli_error($conexao);
+            echo "ERRO: " . mysqli_error($conexao);
         }  
     }
     mysqli_close($conexao);
@@ -100,6 +104,7 @@ if(isset($_POST['entrar'])){
             $_SESSION['nome'] = $linha['nome'];
             $_SESSION['cpf'] = $linha['cpf'];
             $_SESSION['data_nascimento'] = $linha['data_nascimento'];
+            $_SESSION['foto'] = "pictures/{$linha['foto']}";
             echo "<script>
             alert('Seja Bem-Vindo Novamente!'); location= './view/buscar-restaurantes.php';
             </script>";

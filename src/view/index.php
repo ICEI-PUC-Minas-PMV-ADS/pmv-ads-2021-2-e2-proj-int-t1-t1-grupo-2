@@ -52,12 +52,12 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                     <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                    <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                 </li>
                 </ul>
                 <ul class="d-flex">
                   <?php if ($logado == false): ?>
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button onclick="window.location.href = './redirecionamento-cadastro.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
                     <button onclick="window.location.href = './login.html'" class="btn btn-login" type="button">Entrar</button>
                   <?php else:?>
                     <button onclick="window.location.href = './perfil-cliente.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>

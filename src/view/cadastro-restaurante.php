@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+    <?php
+
+    session_start();
+    if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
+    
+        $logado = true;
+    
+    } else {
+    
+        $logado = false;
+        header('Location: ./login.html');
+
+    }
+    
+    ?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -56,11 +72,11 @@
                     <form action="../controller_bd_restaurante.php" method="post" enctype="multipart/form-data">
                         <h2 class="display-6 fw-bold mb-3 titulo-form-cadastro">Cadastre seu restaurante:</h2>
                         <div class="row">
-                            <div class="mb-3 col-md-9">
+                            <div class="mb-3 col-md-6">
                                 <label for="nomeRestaurante" class="form-label text-form-cadastro">Nome</label>
                                 <input type="text" class="form-control form-cadastro-input" name="nomeRestaurante" required>
                             </div>
-                            <div class="mb-3 col-md-3">
+                            <div class="mb-3 col-md-6">
                                 <label for="fileLogo" class="form-label text-form-cadastro">Logo</label>
                                 <input type="file" class="form-control form-control-sm form-cadastro-input" name="logoRestaurante" optional>
                             </div>

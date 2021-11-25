@@ -92,7 +92,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <div class="row">
                 <div class="col-md-3 logo-nome">
                     <a class="text-decoration-none" href="./perfil-pizzatime.html">
-                        <img class="busca-logos rounded-circle" src="./img/pizza-time.png" alt="">
+                        <img class="busca-logos rounded-circle" src="./img/padrao.png" alt="">
                         <p class="busca-nome">Pizza Time</p>
                     </a>
                 </div>
