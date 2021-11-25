@@ -125,9 +125,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
         </tbody>
       </table>
     </main> 
-    <footer>
-        <div id="footer-area">
-            <div class="container-fluid">
+    <footer class="fixed-bottom">
                 <div class="row">
                     <div class="col-md-6">
                         <a><h3>Dinner Boss</h3></a>
@@ -137,8 +135,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                         <a class="link-sociais" href="#"><i class="fab fa-twitter"></i></a>
                         <a class="link-sociais" href="#"><i class="fab fa-instagram"></i></a>
                     </div>                            
-                </div>
-            </div>
         </div>
     </footer>
 </body> 

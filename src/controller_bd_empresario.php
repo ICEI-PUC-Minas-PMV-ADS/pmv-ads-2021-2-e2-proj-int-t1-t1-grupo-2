@@ -2,94 +2,69 @@
 
 include_once('config.php');
 
+//CADASTRO DE NOVOS USUÁRIOS
 if(isset($_POST['cadastrar'])){
+    
+    $options = [
+        'cost' => 12,
+    ];
 
-    $nome = $_POST['nomeRestaurante'];
-    $logo = $_FILES['logoRestaurante'];
-    $cnpj = $_POST['cnpjRestaurante'];
-    $tel = $_POST['telRestaurante'];
-    $redeSocial = $_POST['redeSocialRestaurante'];
-    $site = $_POST['siteRestaurante'];
-    $email = $_POST['emailRestaurante'];
-    $logradouro = $_POST['logradouroRestaurante'];
-    $bairro = $_POST['bairroRestaurante'];
-    $cidade = $_POST['cidadeRestaurante'];
-    $cep = $_POST['cepRestaurante'];
-    $estado = $_POST['estadoRestaurante'];
-    $horarioAbrir = $_POST['horarioAbrirRestaurante'];
-    $horarioFechar = $_POST['horarioFecharRestaurante'];
-    $diasDaSemana = $_POST['diasDaSemanaRestaurante'];
-    $diasDaSemanaTexto = '';
-    $formasDePagamento = $_POST['formasDePagamento'];
-    $formasDePagamentoTexto = '';
+    $nome = $_POST['nomeCliente'];
+    $email = $_POST['emailCliente'];
+    $foto = $_POST['fotoCliente'];
+    $cpf = $_POST['cpfCliente'];
+    $dataNascimento = $_POST['dataNasCliente'];
+    $tel = $_POST['telCliente'];
+    $cel = $_POST['celCliente'];
+    $usuario = $_POST['usuarioCliente'];
+    //codifica a senha para maior segurança
+    $senha = password_hash($_POST['senhaCliente'], PASSWORD_BCRYPT, $options);
 
-
+    
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
-    $verificarSeExisteCnpj = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE cnpj = '$cnpj'"));
-    $verificarSeExisteEmail = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE email = '$email'"));
+    $verificarSeExisteEmail = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'"));
+    $verificarSeExisteCpf = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE cpf = '$cpf'"));
     if($verificarSeExisteEmail == 1){
         echo "<script>
-        alert('Email já cadastrado!'); window. history. back();
+        var resultado = confirm('Email já cadastrado, deseja entrar?');
+        if(resultado == true){
+            location= './view/login.html';
+        }else{
+            location= './view/cadastro-cliente.html';
+        }
         </script>";
-    }else if($verificarSeExisteCnpj == 1){
+    }else if($verificarSeExisteCpf == 1){
         echo "<script>
-        alert('CNPJ já cadastrado!'); window. history. back();
+        var resultado = confirm('CPF já cadastrado, deseja entrar?');
+        if(resultado == true){
+            location= './view/login.html';
+        }else{
+            location= './view/cadastro-cliente.html';
+        }
         </script>";
     }else
     {
+    //faz o cadastro do novo usuario no banco de dados!
+    if(mysqli_query($conexao,"INSERT INTO cliente(nome,email,cpf,data_nascimento,foto,usuario,senha) 
+    values ('$nome','$email','$cpf','$dataNascimento','$foto','$usuario','$senha')") AND (mysqli_query($conexao,"INSERT INTO telefone(numero) 
+    values ('$tel'), ('$cel')"))){
+        session_start();
+        $_SESSION['logado'] = true;
+        $_SESSION['usuario'] = $usuario;
+        $_SESSION['nome'] = $nome;
+        $_SESSION['email'] = $email;
+        $_SESSION['cpf'] = $cpf;
+        $_SESSION['data_nascimento'] = $dataNascimento;
+        $_SESSION['celular'] = $cel;
+        $_SESSION['telefone'] = $tel;
 
-    //Transforma os checkboxs selecionados em texto.
-    foreach($diasDaSemana as $chk1)  
-    {  
-      $diasDaSemanaTexto .= $chk1.",";  
-    }
-    foreach($formasDePagamento as $chk2)  
-    {  
-      $formasDePagamentoTexto .= $chk2.",";  
-    }
-
-    define('TAMANHO_MAXIMO', (2 * 1024 * 1024));
-
-    if (!isset($_FILES['logoRestaurante']))
-{
-    echo print_r('Selecione uma imagem');
-    exit;
-}
-    $name = $logo['name'];
-    $tipo = $logo['type'];
-    $tamanho = $logo['size'];
-    // Validações básicas
-    // Formato
-    if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $tipo))
-    {
-        echo print_r('Isso não é uma imagem válida');
-        exit;
-    }
-    // Tamanho
-    if ($tamanho > TAMANHO_MAXIMO)
-    {
-        echo print_r('A imagem deve possuir no máximo 1 MB');
-        exit;
-    }
-    // Transformando foto em dados (binário)
-    $conteudo = file_get_contents($logo['tmp_name']);
-    $titulo = filter_var($conteudo, FILTER_SANITIZE_MAGIC_QUOTES);
-    $logoConvertida = addslashes($conteudo);
-
-   //faz o cadastro do novo usuario no banco de dados!
-    if(mysqli_query($conexao,"INSERT INTO estabelecimento(nome,logo,cnpj,tel,redeSocial,site,email,logradouro,bairro,cidade,
-    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento) 
-    values ('$nome','$titulo','$cnpj','$tel','$redeSocial','$site','$email','$logradouro','$bairro','$cidade','$cep','$estado','$horarioAbrir',
-    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto')"))
-    {
         echo "<script>
-        alert('Restaurante Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
+        alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
         </script>";
-    } else{
-            print_r($logoConvertida);
+        } else{
             echo "ERRO: " . mysqli_error($conexao);
-    }  
-}
+        }  
+    }
     mysqli_close($conexao);
 }
 
