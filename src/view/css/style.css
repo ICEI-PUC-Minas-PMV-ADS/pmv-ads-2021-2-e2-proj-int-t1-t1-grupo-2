@@ -95,6 +95,13 @@ footer {
   width: 100%;
 }
 
+#footer-areas{
+  text-align: center;
+  width:100%;
+  margin: 0; height: 100%; overflow: hidden
+}
+
+
 .footer-sociais {
   padding: 1rem;
 }
@@ -112,6 +119,7 @@ footer h3{
   color: #FFF;
   float: left;
 }
+
 
 /*Home*/
 
@@ -386,9 +394,12 @@ footer h3{
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
   margin-right: 38%;
- 
+  margin-bottom: 100%;
 }
- 
+
+.space1 {
+  padding: 8%;
+}
  
 .btnn-google {
   color: white !important;
