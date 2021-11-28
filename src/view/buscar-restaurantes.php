@@ -20,7 +20,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
 
 ?>
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
