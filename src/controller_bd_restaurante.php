@@ -3,7 +3,9 @@
 include_once('config.php');
 
 if(isset($_POST['cadastrar'])){
+    session_start();
 
+    $empresario_id = $_SESSION['id'];
     $nome = $_POST['nomeRestaurante'];
     $logo = $_FILES['logoRestaurante'];
     $cnpj = $_POST['cnpjRestaurante'];
@@ -48,71 +50,49 @@ if(isset($_POST['cadastrar'])){
       $formasDePagamentoTexto .= $chk2.",";  
     }
 
-    if (isset($_FILES['logoRestaurante'])){
+    if ($_FILES['logoRestaurante']['size'] != 0){
 
         $extensao = strtolower(substr($_FILES['logoRestaurante']['name'], -4));
         $novo_nome = md5(time()) . $extensao;
         $diretorio = "pictures/";
-
+    
         move_uploaded_file($_FILES['logoRestaurante']['tmp_name'], $diretorio.$novo_nome);
+    }else{
+        $novo_nome = "bbBBbbCCccAAccBBBaaaaCCCCddddSSs321123555.jpg";
     }
 
-   //faz o cadastro do novo usuario no banco de dados!
+   //faz o cadastro do novo estabelecimetno no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO estabelecimento(nome,logo,cnpj,tel,redeSocial,site,email,logradouro,bairro,cidade,
-    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento) 
+    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento,empresario_id) 
     values ('$nome','$novo_nome','$cnpj','$tel','$redeSocial','$site','$email','$logradouro','$bairro','$cidade','$cep','$estado','$horarioAbrir',
-    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto')"))
+    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto','$empresario_id')"))
     {
+        $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
+        if(mysqli_num_rows($dados) >= 1){
+            while($linha = $dados->fetch_array())
+            {
+            $linhas[] = $linha;
+            }
+        $_SESSION['estabelecimentos'] = $linhas;
+        }
         echo "<script>
         alert('Restaurante Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
         </script>";
-    } else{
+    }else{
             echo "ERRO: " . mysqli_error($conexao);
     }  
 }
     mysqli_close($conexao);
 }
 
-//LOGIN DOS USUÁRIOS
-if(isset($_POST['entrar'])){
-    
-    $options = [
-        'cost' => 12,
-    ];
+if(isset($_POST['resgatarDados'])){
 
-    $email = $_POST['emailCliente'];
-    $senha = $_POST['senhaCliente'];
+    $empresario_id = $_SESSION['id'];
 
-    $dados = mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'");
-    if(mysqli_num_rows($dados) == 1){
-        // transforma os dados em um array
-        $linha = mysqli_fetch_assoc($dados);
-        // verifica se a senha é correspondente
-        if (password_verify($senha, $linha['senha'])) {
-            session_start();
-            $_SESSION['logado'] = true;
-            $_SESSION['usuario'] = $linha['usuario'];
-            $_SESSION['email'] = $linha['email'];
-            $_SESSION['nome'] = $linha['nome'];
-            $_SESSION['cpf'] = $linha['cpf'];
-            $_SESSION['data_nascimento'] = $linha['data_nascimento'];
-            echo "<script>
-            alert('Seja Bem-Vindo Novamente!'); location= './view/buscar-restaurantes.php';
-            </script>";
-        }else{
-            echo "<script>
-            alert('Senha incorreta!'); location= './view/login.html';
-            </script>";
-        }
-    }else{
-        echo "<script>
-        var resultado = confirm('Email não cadastrado, deseja se cadastrar?');
-        if(resultado == true){
-            location= './view/cadastro-cliente.html';
-        }else{
-            location= './view/login.html';
-        }
-        </script>";
+    $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
+    if(mysqli_num_rows($dados) >= 1){
+        session_start();
+        $_SESSION['estabelecimentos'] = $dados;
     }
     mysqli_close($conexao);
 }

@@ -71,6 +71,7 @@ if(isset($_POST['cadastrar'])){
     {
         session_start();
         $_SESSION['logado'] = true;
+        $_SESSION['id'] = mysqli_insert_id($conexao);
         $_SESSION['perfil'] = 'empresario';
         $_SESSION['usuario'] = $usuario;
         $_SESSION['nome'] = $nome;
@@ -99,7 +100,7 @@ if(isset($_POST['delete'])){
     ];
 
     $email = $_POST['emailEmpresario'];
-    $cpf = $_POST['cnpjEmpresario'];
+    $cnpj = $_POST['cnpjEmpresario'];
     $senha = $_POST['senhaEmpresario'];
 
     $dados = mysqli_query($conexao,"SELECT * FROM empresario WHERE email = '$email' AND cnpj = '$cnpj'");
@@ -108,15 +109,18 @@ if(isset($_POST['delete'])){
         $linha = mysqli_fetch_assoc($dados);
         if (password_verify($senha, $linha['senha'])) {
             $senha_verificada = $linha['senha'];
-            if(mysqli_query($conexao,"DELETE FROM empresario WHERE email = '$email' AND cnpj = '$cnpj' AND senha = '$senha_verificada'")){
-                session_start();
-                session_destroy();
-                if($linha['foto'] != "bbBBbbCCccAAccBBBaaaaCCCCddddSSs321123555.jpg"){
-                    @unlink("pictures/".$linha['foto']);
+            $id = $linha['id'];
+            if(mysqli_query($conexao,"DELETE FROM estabelecimento WHERE empresario_id = '$id'")){
+                if(mysqli_query($conexao,"DELETE FROM empresario WHERE email = '$email' AND cnpj = '$cnpj' AND senha = '$senha_verificada'")){
+                    session_start();
+                    session_destroy();
+                    if($linha['foto'] != "bbBBbbCCccAAccBBBaaaaCCCCddddSSs321123555.jpg"){
+                        @unlink("pictures/".$linha['foto']);
+                    }
+                    echo "<script>
+                    alert('Conta Excluida com Sucesso!'); location= './view/index.php';
+                    </script>";
                 }
-                echo "<script>
-                alert('Conta Excluida com Sucesso!'); location= './view/index.php';
-                </script>";
             }
         }else{
             echo "<script>
