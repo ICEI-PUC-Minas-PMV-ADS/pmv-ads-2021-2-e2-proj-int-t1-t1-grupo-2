@@ -2,13 +2,21 @@
 <html lang="pt-br">
 
 <?php
+  include '../controller_bd_restaurante.php';
+  include '../config.php';
+
 
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
     $logado = true;
-    $linhas = $_SESSION['estabelecimentos'];
+    if($_SESSION['estabelecimentos'] == null){
+      $linhas = [];
+    }else{
+      $linhas = $_SESSION['estabelecimentos'];
+    }
     $count = 0;
+    
     
     
 } else {

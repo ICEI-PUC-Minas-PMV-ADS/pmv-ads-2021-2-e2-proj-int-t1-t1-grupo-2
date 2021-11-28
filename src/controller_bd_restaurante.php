@@ -85,14 +85,17 @@ if(isset($_POST['cadastrar'])){
     mysqli_close($conexao);
 }
 
-if(isset($_POST['resgatarDados'])){
+function resgatarDados(){
 
     $empresario_id = $_SESSION['id'];
 
     $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
     if(mysqli_num_rows($dados) >= 1){
-        session_start();
-        $_SESSION['estabelecimentos'] = $dados;
+        while($linha = $dados->fetch_array())
+        {
+        $linhas[] = $linha;
+        }
+    $_SESSION['estabelecimentos'] = $linhas;
     }
     mysqli_close($conexao);
 }

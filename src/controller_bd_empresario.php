@@ -1,6 +1,7 @@
 <?php
 
 include_once('config.php');
+$conexao = 
 
 //CADASTRO DE NOVOS USUÁRIOS
 if(isset($_POST['cadastrar'])){
@@ -81,6 +82,7 @@ if(isset($_POST['cadastrar'])){
         $_SESSION['celular'] = $cel;
         $_SESSION['telefone'] = $tel;
         $_SESSION['foto'] = "pictures/".$novo_nome;
+        $_SESSION['estabelecimentos'] = [];
 
         echo "<script>
         alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
