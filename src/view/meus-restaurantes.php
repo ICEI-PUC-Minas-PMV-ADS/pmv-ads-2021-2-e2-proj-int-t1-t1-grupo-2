@@ -2,8 +2,8 @@
 <html lang="pt-br">
 
 <?php
-  include '../controller_bd_restaurante.php';
-  include '../config.php';
+
+include '../config.php';
 
 
 session_start();

@@ -1,7 +1,6 @@
 <?php
 
 include_once('config.php');
-$conexao = 
 
 //CADASTRO DE NOVOS USUÁRIOS
 if(isset($_POST['cadastrar'])){

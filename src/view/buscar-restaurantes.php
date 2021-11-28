@@ -4,6 +4,10 @@
 
 <?php
 
+include_once('../controller_bd_restaurante.php');
+$lista = $GLOBALS['linhas'];
+$count = 0;
+
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
 
@@ -66,10 +70,8 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 <?php endif ?>
                 </ul>
             </div>
-            </div>
         </nav>
     </header>
-
     <main>
         <section>
             <div class="col-md-12">
@@ -90,60 +92,19 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 </div>
             </div>
             <div class="row">
+            <?php while($count < count($lista)){?>
                 <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="./perfil-pizzatime.html">
-                        <img class="busca-logos rounded-circle" src="./img/padrao.png" alt="">
-                        <p class="busca-nome">Pizza Time</p>
+                    <a class="text-decoration-none" href="./perfil-restaurante.php">
+                        <img class="busca-logos rounded-circle" src="../pictures/<?php echo $lista[$count]['logo']?>" alt="">
+                        <p class="busca-nome"><?php echo $lista[$count]['nome']?></p>
                     </a>
                 </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="./perfil-sushi-luxury.php">
-                        <img class="busca-logos rounded-circle" src="./img/sushi-luxury.png" alt="">
-                        <p class="busca-nome">Sushi Luxury</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="./perfil-tudo-grelhado.html">
-                        <img class="busca-logos rounded-circle" src="./img/tudo-grelhado.png" alt="">
-                        <p class="busca-nome">Tudo Grelhado</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/pizzatown.png" alt="">
-                        <p class="busca-nome">Pizzatown</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/takoyaki.png" alt="">
-                        <p class="busca-nome">Takoyaki</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/mexicana.png" alt="">
-                        <p class="busca-nome">Mexican Food</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/sea-food.png" alt="">
-                        <p class="busca-nome">Sea Food</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/vintage-dogs.png" alt="">
-                        <p class="busca-nome">Vintage Hot Dogs</p>
-                    </a>
-                </div>
+            <?php $count +=1;} ?>
             </div>
         </section>
     </main>
-
     <footer>
-        <div id="footer-area">
+        <div id="footer-areas">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
@@ -160,7 +121,5 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             </div>
         </div>
     </footer>
-
 </body>
-
 </html>
