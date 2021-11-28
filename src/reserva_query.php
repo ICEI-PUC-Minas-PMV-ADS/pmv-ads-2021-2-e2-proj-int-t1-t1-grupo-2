@@ -18,8 +18,9 @@ $email = mysqli_real_escape_string($link, $_REQUEST['Email']);
 $restaurante = mysqli_real_escape_string($link, $_REQUEST['Restaurante']);
 $mesa = mysqli_real_escape_string($link, $_REQUEST['Mesa']);
 $data_agendamento = mysqli_real_escape_string($link, $_REQUEST['Data']);
- 
-$sql = "INSERT INTO Reserva (Cliente, Telefone, Email, Restaurante, Mesa, Data) VALUES ('$nome_do_cliente', '$Telefone', '$email', '$restaurante', '$mesa', '$data_agendamento')";
+$horario_agendamento = mysqli_real_escape_string($link, $_REQUEST['Horario']); 
+
+$sql = "INSERT INTO Reserva (Cliente, Telefone, Email, Restaurante, Mesa, Data) VALUES ('$nome_do_cliente', '$Telefone', '$email', '$restaurante', '$mesa', '$data_agendamento', '$horario_agendamento')";
 
 if(mysqli_query($link, $sql)){
     echo "Reserva cadastrada com sucesso.";
