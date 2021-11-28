@@ -45,7 +45,7 @@ if(isset($_POST['cadastrar'])){
         </script>";
     }else
     {
-        if (isset($_FILES['fotoCliente'])){
+        if ($_FILES['fotoCliente']['size'] != 0){
 
             $extensao = strtolower(substr($_FILES['fotoCliente']['name'], -4));
             $novo_nome = md5(time()) . $extensao;
@@ -53,7 +53,7 @@ if(isset($_POST['cadastrar'])){
     
             move_uploaded_file($_FILES['fotoCliente']['tmp_name'], $diretorio.$novo_nome);
         }else{
-            $novo_nome = null;
+            $novo_nome = "user.jpg";
         }
         
     //faz o cadastro do novo usuario no banco de dados!
@@ -69,7 +69,7 @@ if(isset($_POST['cadastrar'])){
         $_SESSION['data_nascimento'] = $dataNascimento;
         $_SESSION['celular'] = $cel;
         $_SESSION['telefone'] = $tel;
-        $_SESSION['foto'] = $diretorio.$novo_nome;
+        $_SESSION['foto'] = "pictures/".$novo_nome;
 
         echo "<script>
         alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
@@ -146,6 +146,9 @@ if(isset($_POST['delete'])){
             if(mysqli_query($conexao,"DELETE FROM cliente WHERE email = '$email' AND cpf = '$cpf' AND senha = '$senha_verificada'")){
                 session_start();
                 session_destroy();
+                if($linha['foto'] != "user.jpg"){
+                    @unlink("pictures/".$linha['foto']);
+                }
                 echo "<script>
                 alert('Conta Excluida com Sucesso!'); location= './view/index.php';
                 </script>";
