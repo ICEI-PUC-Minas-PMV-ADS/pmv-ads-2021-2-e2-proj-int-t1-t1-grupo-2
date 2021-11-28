@@ -93,8 +93,8 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <div class="row">
             <?php while($count < count($lista)){?>
                 <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="./perfil-restaurante.php">
-                        <img class="busca-logos rounded-circle" src="../pictures/<?php echo $lista[$count]['logo']?>" alt="">
+                    <a class="text-decoration-none" href="./perfil-restaurante.php?id=<?php echo $lista[$count]['id']?>">
+                        <img class="busca-logos rounded-circle" src="../pictures/<?php echo $lista[$count]['logo']?>">
                         <p class="busca-nome"><?php echo $lista[$count]['nome']?></p>
                     </a>
                 </div>

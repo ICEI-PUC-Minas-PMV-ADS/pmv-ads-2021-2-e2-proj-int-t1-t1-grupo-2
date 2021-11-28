@@ -2,7 +2,9 @@
 <html lang="pt-br">
 
 <?php
-
+    include_once('../controller_bd_restaurante.php');
+$cod_count = $_GET['count'];
+$lista = $GLOBALS['linhas'];
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
@@ -10,6 +12,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
 } else {
     $logado = false;
+    header('Location: ./login.html');
 }
     
 ?>
@@ -90,11 +93,8 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
               </div>
               <div class="row">
                 <div class="mb-3 col-md-6">
-                  <label for="restauranteReserva" class="form-label text-form-cadastro">Restaurante</label>
-                  <select class="form-select form-cadastro-input"  id="restauranteReserva" required>
-                    <option>Escolher...</option>
-                    <option>Pizza Time</option>                    
-                  </select>
+                  <label class="form-label text-form-cadastro">Restaurante</label>
+                  <input readonly type="text" class="form-control form-cadastro-input" id="dataReserva" value="<?php echo $lista[$cod_count]['nome']?>" required>
                 </div>
                 <div class="mb-3 col-md-6">
                   <label for="mesaReserva" class="form-label text-form-cadastro">Mesa</label>

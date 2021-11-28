@@ -2,7 +2,16 @@
 <html lang="pt-br">
 
     <?php
-
+    include_once('../controller_bd_restaurante.php');
+    $cod_restaurante = $_GET['id'];
+    $lista = $GLOBALS['linhas'];
+    $count = 0;
+    while($count < count($lista)){
+        if($lista[$count]['id'] == $cod_restaurante){
+            break;
+        }
+        $count +=1;
+    }
     session_start();
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
@@ -71,15 +80,15 @@
     <main>
         <section class="bg-sushi">
             <div class="nome-logo-restaurante">
-                <img class="logo rounded-circle" width="180px" src="./img/sushi-luxury.png" alt="">
-                <h3 class="nome-restaurante display-4 fw-bold">Sushi Luxury</h3>
+                <img class="logo rounded-circle" width="180px" src="../pictures/<?php echo $lista[$count]['logo']?>" alt="">
+                <h3 class="nome-restaurante display-4 fw-bold"><?php echo $lista[$count]['nome']?></h3>
             </div>
         </section>
         <section id="sub-menu">
             <div class="row">
                 <ul class="col-md-6">
                     <li class="">
-                        <a href="./reserva.html">Fazer reserva</a>
+                        <a href="./reserva.php?count=<?php echo $count?>">Fazer reserva</a>
                     </li>
                     <li class="">
                         <a href="">Ver cardápio</a>
@@ -100,26 +109,25 @@
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-map-marker-alt"></i>
                     <h4>Endereço:</h4>
-                    <p> Avenida Lorem Ipsum, 260 <br> 
-                        Bairrro Lorem Ipsum </p>
+                    <p> <?php echo $lista[$count]['logradouro']?> <br> 
+                    <?php echo $lista[$count]['cidade']?> <?php echo $lista[$count]['estado']?> </p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="far fa-clock"></i>
                     <h4>Funcionamento:</h4>
-                    <p> Terça a Domingo <br> 
-                        19h às 2h</p>
+                    <p> <?php echo $lista[$count]['diasDaSemana']?><br> 
+                    <?php echo $lista[$count]['horarioAbrir']?> às <?php echo $lista[$count]['horarioFechar']?></p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-phone-alt"></i>
                     <h4>Contato:</h4>
-                    <p> (31) 3421-9047 <br> 
-                        @sushi_lx </p>
+                    <p> <?php echo $lista[$count]['tel']?><br> 
+                        @<?php echo $lista[$count]['nome']?> </p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-hand-holding-usd"></i>
                     <h4> Formas de pagamento:</h4>
-                    <p> Dinheiro | Pix <br> 
-                        Débito | Crédito </p>
+                    <p> <?php echo $lista[$count]['formasDePagamento']?><br></p>
                 </div>
             </div>
         </section>
