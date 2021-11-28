@@ -22,6 +22,7 @@ if(isset($_POST['entrar'])){
         if (password_verify($senha, $linha['senha'])) {
             session_start();
             $_SESSION['logado'] = true;
+            $_SESSION['id'] = $linha['id'];
             $_SESSION['perfil'] = 'cliente';
             $_SESSION['usuario'] = $linha['usuario'];
             $_SESSION['email'] = $linha['email'];
@@ -44,6 +45,7 @@ if(isset($_POST['entrar'])){
         if (password_verify($senha, $linha['senha'])) {
             session_start();
             $_SESSION['logado'] = true;
+            $_SESSION['id'] = $linha['id'];
             $_SESSION['perfil'] = 'empresario';
             $_SESSION['usuario'] = $linha['usuario'];
             $_SESSION['email'] = $linha['email'];

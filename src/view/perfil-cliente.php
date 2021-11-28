@@ -71,6 +71,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
           <div class="card-body p-4 p-sm-2">
             <div class="form-rest">
               <form action='../controller_bd_cliente.php' method="POST">
+
               <div class="row">
               <div class="mb-3 col-md-3">
                 <img class="img-fluid img-thumbnail rounded mx-auto d-block" height="150px" width="150px" src="../<?php echo $_SESSION['foto']?>">    
@@ -90,6 +91,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                       value = '<?php echo $_SESSION['email']?>' required>
                   </div>
               </div>
+
               </div>
                 <div class="row">
                   <div class="mb-3 col-md-6">
@@ -129,6 +131,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                       required>
                   </div>
                 </div>
+
                 <div class='btn-group'>
                     <button type="submit" name="delete"
                     class="btn btn-cadastro-google mb-3 col-md-6 mt-4">Excluir Conta</button>
@@ -141,11 +144,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
         </div>
       </div>   
   </main>
- 
-    </body>
- 
- 
- 
     <footer>
         <div id="footer-area">
             <div class="container-fluid">
@@ -162,7 +160,5 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             </div>
         </div>
     </footer>
- 
 </body>
- 
 </html>

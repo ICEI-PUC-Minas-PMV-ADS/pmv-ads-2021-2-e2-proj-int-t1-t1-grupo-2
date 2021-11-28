@@ -73,6 +73,7 @@ if(isset($_POST['cadastrar'])){
     {
         session_start();
         $_SESSION['logado'] = true;
+        $_SESSION['id'] = mysqli_insert_id($conexao);
         $_SESSION['perfil'] = 'cliente';
         $_SESSION['usuario'] = $usuario;
         $_SESSION['nome'] = $nome;
