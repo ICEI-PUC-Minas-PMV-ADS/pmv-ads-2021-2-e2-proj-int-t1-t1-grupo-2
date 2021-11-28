@@ -69,7 +69,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
       <section id="form-reserva">
         <div class="col-md-12">
           <div class="form-rest">
-          <form>
+          <form action="reserva_query.php" method="post">
             <h2 class="display-6 fw-bold mb-3 titulo-form-cadastro">Reserve sua mesa!</h2>
 
               <div class="row">
