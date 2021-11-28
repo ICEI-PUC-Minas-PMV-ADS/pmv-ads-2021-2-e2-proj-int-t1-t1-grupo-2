@@ -25,7 +25,9 @@ if(isset($_POST['cadastrar'])){
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
     $verificarSeExisteEmail = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'"));
     $verificarSeExisteCpf = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM cliente WHERE cpf = '$cpf'"));
-    if($verificarSeExisteEmail == 1){
+    $verificarSeExisteEmailEmpresario = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM empresario WHERE email = '$email'"));
+    $verificarSeExisteCnpjEmpresario = mysqli_num_rows(mysqli_query($conexao,"SELECT * FROM empresario WHERE cnpj = '$cnpj'"));
+    if($verificarSeExisteEmail == 1 OR $verificarSeExisteEmailEmpresario == 1){
         echo "<script>
         var resultado = confirm('Email já cadastrado, deseja entrar?');
         if(resultado == true){
@@ -43,6 +45,15 @@ if(isset($_POST['cadastrar'])){
             window. history. back();
         }
         </script>";
+    }else if($verificarSeExisteCnpjEmpresario == 1){
+        echo "<script>
+        var resultado = confirm('CNPJ já cadastrado, deseja entrar?');
+        if(resultado == true){
+            location= './view/login.html';
+        }else{
+            window. history. back();
+        }
+        </script>";
     }else
     {
         if ($_FILES['fotoCliente']['size'] != 0){
@@ -53,7 +64,7 @@ if(isset($_POST['cadastrar'])){
     
             move_uploaded_file($_FILES['fotoCliente']['tmp_name'], $diretorio.$novo_nome);
         }else{
-            $novo_nome = "user.jpg";
+            $novo_nome = "bbBBbbCCccAAccBBBaaaaCCCCddddSSs321123555.jpg";
         }
         
     //faz o cadastro do novo usuario no banco de dados!
@@ -62,6 +73,7 @@ if(isset($_POST['cadastrar'])){
     {
         session_start();
         $_SESSION['logado'] = true;
+        $_SESSION['perfil'] = 'cliente';
         $_SESSION['usuario'] = $usuario;
         $_SESSION['nome'] = $nome;
         $_SESSION['email'] = $email;
@@ -77,51 +89,6 @@ if(isset($_POST['cadastrar'])){
         } else{
             echo "ERRO: " . mysqli_error($conexao);
         }  
-    }
-    mysqli_close($conexao);
-}
-
-//LOGIN DOS USUÁRIOS
-if(isset($_POST['entrar'])){
-    
-    $options = [
-        'cost' => 12,
-    ];
-
-    $email = $_POST['emailCliente'];
-    $senha = $_POST['senhaCliente'];
-
-    $dados = mysqli_query($conexao,"SELECT * FROM cliente WHERE email = '$email'");
-    if(mysqli_num_rows($dados) == 1){
-        // transforma os dados em um array
-        $linha = mysqli_fetch_assoc($dados);
-        // verifica se a senha é correspondente
-        if (password_verify($senha, $linha['senha'])) {
-            session_start();
-            $_SESSION['logado'] = true;
-            $_SESSION['usuario'] = $linha['usuario'];
-            $_SESSION['email'] = $linha['email'];
-            $_SESSION['nome'] = $linha['nome'];
-            $_SESSION['cpf'] = $linha['cpf'];
-            $_SESSION['data_nascimento'] = $linha['data_nascimento'];
-            $_SESSION['foto'] = "pictures/{$linha['foto']}";
-            echo "<script>
-            alert('Seja Bem-Vindo Novamente!'); location= './view/buscar-restaurantes.php';
-            </script>";
-        }else{
-            echo "<script>
-            alert('Senha incorreta!'); window. history. back();
-            </script>";
-        }
-    }else{
-        echo "<script>
-        var resultado = confirm('Email não cadastrado, deseja se cadastrar?');
-        if(resultado == true){
-            location= './view/cadastro-cliente.html';
-        }else{
-            window. history. back();
-        }
-        </script>";
     }
     mysqli_close($conexao);
 }
@@ -146,7 +113,7 @@ if(isset($_POST['delete'])){
             if(mysqli_query($conexao,"DELETE FROM cliente WHERE email = '$email' AND cpf = '$cpf' AND senha = '$senha_verificada'")){
                 session_start();
                 session_destroy();
-                if($linha['foto'] != "user.jpg"){
+                if($linha['foto'] != "bbBBbbCCccAAccBBBaaaaCCCCddddSSs321123555.jpg"){
                     @unlink("pictures/".$linha['foto']);
                 }
                 echo "<script>
@@ -155,7 +122,7 @@ if(isset($_POST['delete'])){
             }
         }else{
             echo "<script>
-            alert('Senha incorreta!'); window. history. back();
+            alert('Senha incorreta!'); location= './view/perfil-cliente.php';
             </script>";
         }
     }
