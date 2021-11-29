@@ -49,7 +49,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                     <a class="nav-menu" aria-current="page" href="./busca-restaurantes.html">Restaurantes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                    <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>

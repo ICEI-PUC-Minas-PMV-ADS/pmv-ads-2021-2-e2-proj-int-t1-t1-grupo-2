@@ -41,7 +41,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="./index.html"><img src="img/logo-dinner.png" alt="" width="200"></a>
+            <a class="navbar-brand" href="./index.php"><img src="img/logo-dinner.png" alt="" width="200"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,10 +52,10 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                         <a class="nav-menu" aria-current="page" href="#">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">

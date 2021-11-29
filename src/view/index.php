@@ -86,7 +86,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
               </form>
             </div>
             <div class="btn-home col-9 position-relative overflow-hidden">
-              <button onclick="window.location.href = './busca-restaurantes.html'" type="submit" class="btn btn-buscar">Buscar</button>         
+              <button onclick="window.location.href = './buscar-restaurantes.php'" type="submit" class="btn btn-buscar">Buscar</button>         
             </div>        
           </div>
         </div>      
@@ -110,7 +110,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <button type="submit" onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-buscar">Sou cliente!</button>
           </div>
           <div class="col-lg-5 d-flex justify-content-center align-items-center pb-4">
-            <button type="submit" onclick="window.location.href = './cadastro-restaurante.html'" class="btn btn-buscar">Cadastrar restaurante!</button>
+            <button type="submit" onclick="window.location.href = './login.html'" class="btn btn-buscar">Cadastrar restaurante!</button>
           </div>
         </div>
       </section>
