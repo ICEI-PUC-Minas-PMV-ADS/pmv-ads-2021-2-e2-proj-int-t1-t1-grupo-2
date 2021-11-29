@@ -36,6 +36,7 @@ if(isset($_POST['cadastrar'])){
     $diasDaSemanaTexto = '';
     $formasDePagamento = $_POST['formasDePagamento'];
     $formasDePagamentoTexto = '';
+    $qtdMesa = $_POST['qtdMesa'];
 
 
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
@@ -75,9 +76,9 @@ if(isset($_POST['cadastrar'])){
 
    //faz o cadastro do novo estabelecimetno no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO estabelecimento(nome,logo,cnpj,tel,redeSocial,site,email,logradouro,bairro,cidade,
-    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento,empresario_id) 
+    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento,empresario_id,qtdMesa) 
     values ('$nome','$novo_nome','$cnpj','$tel','$redeSocial','$site','$email','$logradouro','$bairro','$cidade','$cep','$estado','$horarioAbrir',
-    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto','$empresario_id')"))
+    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto','$empresario_id','$qtdMesa')"))
     {
         $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
         if(mysqli_num_rows($dados) >= 1){

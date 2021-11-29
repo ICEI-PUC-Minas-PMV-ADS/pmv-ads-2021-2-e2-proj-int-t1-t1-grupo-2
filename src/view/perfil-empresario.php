@@ -116,7 +116,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                   <div class="mb-3 col-md-6">
                     <label class="form-label text-form-cadastro">Celular</label>
                     <input type="tel" name="celEmpresario" class="form-control form-cadastro-input"
-                      placeholder="(__)_____-_____" optional>
+                      placeholder="(__)_____-_____" value="<?php echo $_SESSION['cel']?>" optional>
                   </div>
                 </div>
 

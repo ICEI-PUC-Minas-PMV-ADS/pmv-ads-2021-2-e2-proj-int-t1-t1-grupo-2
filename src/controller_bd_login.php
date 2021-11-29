@@ -28,6 +28,7 @@ if(isset($_POST['entrar'])){
             $_SESSION['email'] = $linha['email'];
             $_SESSION['nome'] = $linha['nome'];
             $_SESSION['cpf'] = $linha['cpf'];
+            $_SESSION['cel'] = $linha['tel'];
             $_SESSION['data_nascimento'] = $linha['data_nascimento'];
             $_SESSION['foto'] = "pictures/{$linha['foto']}";
             echo "<script>

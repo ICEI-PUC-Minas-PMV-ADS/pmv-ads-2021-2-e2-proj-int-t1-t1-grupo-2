@@ -5,6 +5,7 @@
     include_once('../controller_bd_restaurante.php');
 $cod_count = $_GET['count'];
 $lista = $GLOBALS['linhas'];
+$count = 0;
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
@@ -72,56 +73,53 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
       <section id="form-reserva">
         <div class="col-md-12">
           <div class="form-rest">
-          <form action="reserva_query.php" method="post">
+          <form action="../controller_bd_reserva.php" method="post">
             <h2 class="display-6 fw-bold mb-3 titulo-form-cadastro">Reserve sua mesa!</h2>
-
+            <input type="hidden" readonly name="restauranteId" value="<?php echo $lista[$cod_count]['id']?>">
               <div class="row">
                 <div class="mb-3 col-md-12">
                   <label for="nomeClienteReserva" class="form-label text-form-cadastro">Nome do cliente</label>
-                  <input type="text" class="form-control form-cadastro-input" id="nomeClienteReserva" value="<?php echo $_SESSION['nome']?>" required>
+                  <input readonly type="text" class="form-control form-cadastro-input" name="nomeClienteReserva" value="<?php echo $_SESSION['nome']?>" required>
                 </div>
               </div>
               <div class="row">
                 <div class="mb-3 col-md-6">
                   <label for="telClienteReserva" class="form-label text-form-cadastro">Telefone</label>
-                  <input type="tel" class="form-control form-cadastro-input" id="telClienteReserva" placeholder="(__)_____-_____" required>
+                  <input readonly type="tel" class="form-control form-cadastro-input" name="telClienteReserva" value="<?php echo $_SESSION['cel']?>" placeholder="(__)_____-_____" required>
                 </div>
                 <div class="mb-3 col-md-6">
-                  <label for="emailCliente" class="form-label text-form-cadastro">Email</label>
-                  <input type="email" class="form-control form-cadastro-input" id="emailCliente" placeholder="exemplo@exemplo.com.br" required>
+                  <label for="emailClienteReserva" class="form-label text-form-cadastro">Email</label>
+                  <input readonly type="email" name="emailClienteReserva" class="form-control form-cadastro-input" value="<?php echo $_SESSION['email']?>" required>
                 </div>       
               </div>
               <div class="row">
                 <div class="mb-3 col-md-6">
                   <label class="form-label text-form-cadastro">Restaurante</label>
-                  <input readonly type="text" class="form-control form-cadastro-input" id="dataReserva" value="<?php echo $lista[$cod_count]['nome']?>" required>
+                  <input readonly type="text" class="form-control form-cadastro-input" name="restauranteReserva" value="<?php echo $lista[$cod_count]['nome']?>" required>
                 </div>
                 <div class="mb-3 col-md-6">
                   <label for="mesaReserva" class="form-label text-form-cadastro">Mesa</label>
-                  <select class="form-select form-cadastro-input" id="mesaReserva" required>
-                    <option>Escolher...</option>
-                    <option>Mesa 1</option>
-                    <option>Mesa 2</option>
-                    <option>Mesa 3</option>                    
+                  <select class="form-select form-cadastro-input" name="mesaClienteReserva" required>
+                    <option></option>
+                    <?php while($count < $lista[$cod_count]['qtdMesa']){ ?>
+                    <option value="<?php echo $count+1; ?>">Mesa <?php echo $count+1; ?></option>      
+                    <?php $count+=1;}?>             
                   </select>
                 </div>
               </div>                                              
               <div class="row">
                 <div class="mb-3 col-md-6">
-                  <label for="dataReserva" class="form-label text-form-cadastro">Data</label>
-                  <input type="date" class="form-control form-cadastro-input" id="dataReserva" placeholder="__/__/____" required>
+                  <label for="dataClienteReserva" class="form-label text-form-cadastro">Data</label>
+                  <input type="date" class="form-control form-cadastro-input" name="dataClienteReserva" placeholder="__/__/____" required>
                 </div>
                 <div class="mb-3 col-md-6">
-                  <label for="horarioReserva" class="form-label text-form-cadastro">Horário</label>
-                  <input type="text" class="form-control form-cadastro-input" id="horarioReserva" required>
+                  <label for="horarioCReserva" class="form-label text-form-cadastro">Horário (de <?php echo str_replace("h",":",$lista[$cod_count]['horarioAbrir'])?> as  <?php echo str_replace("h",":",$lista[$cod_count]['horarioFechar'])?>)</label>
+                  <input name="horarioClienteReserva" type="time" min="<?php echo str_replace("h",":",$lista[$cod_count]['horarioAbrir'])?>" max="<?php echo str_replace("h",":",$lista[$cod_count]['horarioFechar'])?>"class="form-control form-cadastro-input" id="horarioReserva" required>
                 </div>                
-              </div>  
+              </div>
               <div class="row">
-                <div class="mb-3 col-md-6 mapa-mesas">
-                  <a href="">Mapa das mesas</a>
-                </div>
-                <div class="mb-3 col-md-6">
-                  <button type="submit" class="btn btn-cadastro mb-3 col-md-6 mt-4">Reservar</button>
+                <div class="mb-3 col-md-12">
+                  <button type="subimit" name="reservar" class="btn btn-cadastro mb-3 col-md-6 mt-4">Reservar</button>
                 </div>
               </div>                                                           
           </form> 

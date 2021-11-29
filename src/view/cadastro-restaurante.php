@@ -131,6 +131,7 @@
                                 <input type="text" class="form-control form-cadastro-input" name="estadoRestaurante" required>
                             </div>
                         </div>    
+
                         <div class="row">
                             <div class="mb-3 col-md-3">
                                 <label for="horarioAbrirRestaurante" class="form-label text-form-cadastro">Horário de abrir</label>
@@ -140,8 +141,12 @@
                                 <label for="horarioFecharRestaurante" class="form-label text-form-cadastro">Horário de fechar</label>
                                 <input type="text" class="form-control form-cadastro-input" name="horarioFecharRestaurante" placeholder="00h00" required>
                             </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="horarioFecharRestaurante" class="form-label text-form-cadastro">Quantidade de Mesas</label>
+                                <input type="number" min='0' class="form-control form-cadastro-input" name="qtdMesa" placeholder="12" required>
+                            </div>
+                        </div>    
 
-                        </div>                        
                         <div class="row">
                             <label for="diaFuncionamentoRestaurante" class="form-label text-form-cadastro">Dias da semana</label>
                             <div class="form-check form-check-inline mb-3 col-md-2">

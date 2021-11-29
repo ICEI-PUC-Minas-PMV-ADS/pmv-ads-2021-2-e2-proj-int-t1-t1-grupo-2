@@ -66,8 +66,8 @@ if(isset($_POST['cadastrar'])){
         }
 
     //faz o cadastro do novo usuario no banco de dados!
-    if(mysqli_query($conexao,"INSERT INTO empresario(nome,email,cnpj,data_nascimento,foto,usuario,senha) 
-    values ('$nome','$email','$cnpj','$dataNascimento','$novo_nome','$usuario','$senha')"))
+    if(mysqli_query($conexao,"INSERT INTO empresario(nome,email,cnpj,data_nascimento,foto,usuario,senha,tel) 
+    values ('$nome','$email','$cnpj','$dataNascimento','$novo_nome','$usuario','$senha','$cel')"))
     {
         session_start();
         $_SESSION['logado'] = true;
@@ -143,7 +143,8 @@ if(isset($_POST['atualizar'])){
     $usuario = $_POST['usuarioEmpresario'];
     $dataNascimento = $_POST['dataNasEmpresario'];
     $email = $_POST['emailEmpresario'];
-    $cpf = $_POST['cnpjEmpresario'];
+    $cel = $_POST['celEmpresario'];
+    $cnpj = $_POST['cnpjEmpresario'];
     $senha = $_POST['senhaEmpresario'];
 
     $dados = mysqli_query($conexao,"SELECT * FROM empresario WHERE email = '$email' AND cnpj = '$cnpj'");
@@ -151,11 +152,12 @@ if(isset($_POST['atualizar'])){
         // transforma os dados em um array
         $linha = mysqli_fetch_assoc($dados);
         if (password_verify($senha, $linha['senha'])) {
-            if(mysqli_query($conexao,"UPDATE empresario SET nome = '$nome', data_nascimento = '$dataNascimento', usuario = '$usuario' WHERE email = '$email' AND cnpj = '$cnpj'")){
+            if(mysqli_query($conexao,"UPDATE empresario SET nome = '$nome', data_nascimento = '$dataNascimento', usuario = '$usuario', tel = '$cel' WHERE email = '$email' AND cnpj = '$cnpj'")){
                 session_start();
                 $_SESSION['usuario'] = $usuario;
                 $_SESSION['nome'] = $nome;
                 $_SESSION['data_nascimento'] = $dataNascimento;
+                $_SESSION['cel'] = $cel;
                 echo "<script>
                 alert('Conta Atualizada com Sucesso!'); location= './view/perfil-cliente.php';
                 </script>";
