@@ -46,13 +46,13 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-menu" aria-current="page" href="./busca-restaurantes.html">Restaurantes</a>
+                    <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                    <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                 </li>
                 </ul>
                 <ul class="d-flex">
