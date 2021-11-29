@@ -78,7 +78,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
               <div class="row">
                 <div class="mb-3 col-md-12">
                   <label for="nomeClienteReserva" class="form-label text-form-cadastro">Nome do cliente</label>
-                  <input type="text" class="form-control form-cadastro-input" id="nomeClienteReserva" required>
+                  <input type="text" class="form-control form-cadastro-input" id="nomeClienteReserva" value="<?php echo $_SESSION['nome']?>" required>
                 </div>
               </div>
               <div class="row">
@@ -109,7 +109,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
               <div class="row">
                 <div class="mb-3 col-md-6">
                   <label for="dataReserva" class="form-label text-form-cadastro">Data</label>
-                  <input type="text" class="form-control form-cadastro-input" id="dataReserva" placeholder="__/__/____" required>
+                  <input type="date" class="form-control form-cadastro-input" id="dataReserva" placeholder="__/__/____" required>
                 </div>
                 <div class="mb-3 col-md-6">
                   <label for="horarioReserva" class="form-label text-form-cadastro">Horário</label>
