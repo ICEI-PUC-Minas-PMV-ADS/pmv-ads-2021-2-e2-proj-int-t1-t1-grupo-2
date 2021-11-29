@@ -7,7 +7,6 @@
 include_once('../controller_bd_restaurante.php');
 $lista = $GLOBALS['linhas'];
 $count = 0;
-
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
 
@@ -91,14 +90,18 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 </div>
             </div>
             <div class="row">
-            <?php while($count < count($lista)){?>
+            <?php if ($lista != null): ?>
+                <?php while($count < count($lista)){?>
                 <div class="col-md-3 logo-nome">
                     <a class="text-decoration-none" href="./perfil-restaurante.php?id=<?php echo $lista[$count]['id']?>">
                         <img class="busca-logos rounded-circle" src="../pictures/<?php echo $lista[$count]['logo']?>">
                         <p class="busca-nome"><?php echo $lista[$count]['nome']?></p>
                     </a>
                 </div>
-            <?php $count +=1;} ?>
+            <?php $count +=1;}?>
+            <?php else:?>
+                <h3>Ainda não temos nenhum estabelecimento cadastrado ;(</h3>
+            <?php endif ?>
             </div>
         </section>
     </main>

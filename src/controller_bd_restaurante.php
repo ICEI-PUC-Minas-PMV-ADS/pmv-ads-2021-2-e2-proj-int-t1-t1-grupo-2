@@ -10,6 +10,8 @@ include_once('config.php');
             $lis[] = $linha;
             }
             $GLOBALS['linhas'] = $lis;
+        }else{
+            $GLOBALS['linhas'] = null;
         }
 
 if(isset($_POST['cadastrar'])){
