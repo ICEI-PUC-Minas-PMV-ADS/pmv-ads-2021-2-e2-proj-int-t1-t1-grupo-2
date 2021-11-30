@@ -23,6 +23,7 @@ if(isset($_POST['entrar'])){
             session_start();
             $_SESSION['logado'] = true;
             $_SESSION['id'] = $linha['id'];
+            $id = $linha['id'];
             $_SESSION['perfil'] = 'cliente';
             $_SESSION['usuario'] = $linha['usuario'];
             $_SESSION['email'] = $linha['email'];
@@ -31,6 +32,15 @@ if(isset($_POST['entrar'])){
             $_SESSION['cel'] = $linha['tel'];
             $_SESSION['data_nascimento'] = $linha['data_nascimento'];
             $_SESSION['foto'] = "pictures/{$linha['foto']}";
+            $_SESSION['reservas'] = [];
+            $dadosReserva = mysqli_query($conexao,"SELECT * FROM reserva WHERE cliente_id = '$id'");
+            if(mysqli_num_rows($dadosReserva) >= 1){
+            while($liR = $dadosReserva->fetch_array(MYSQLI_ASSOC))
+            {
+            $linhasReservas[] = $liR;
+            }
+            $_SESSION['reservas'] = $linhasReservas;
+            }
             echo "<script>
             alert('Seja Bem-Vindo Novamente!'); location= './view/buscar-restaurantes.php';
             </script>";
@@ -58,7 +68,7 @@ if(isset($_POST['entrar'])){
             $empresario_id = $linha['id'];
             $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
             if(mysqli_num_rows($dados) >= 1){
-            while($li = $dados->fetch_array())
+            while($li = $dados->fetch_array(MYSQLI_ASSOC))
             {
             $linhas[] = $li;
             }

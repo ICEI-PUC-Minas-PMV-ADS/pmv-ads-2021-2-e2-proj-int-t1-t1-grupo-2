@@ -82,7 +82,7 @@ if(isset($_POST['cadastrar'])){
     {
         $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
         if(mysqli_num_rows($dados) >= 1){
-            while($linha = $dados->fetch_array())
+            while($linha = $dados->fetch_array(MYSQLI_ASSOC))
             {
             $linhas[] = $linha;
             }

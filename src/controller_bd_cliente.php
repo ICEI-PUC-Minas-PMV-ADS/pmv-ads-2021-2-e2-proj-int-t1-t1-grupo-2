@@ -83,6 +83,8 @@ if(isset($_POST['cadastrar'])){
         $_SESSION['cel'] = $cel;
         $_SESSION['tel'] = $tel;
         $_SESSION['foto'] = "pictures/".$novo_nome;
+        $_SESSION['reservas'] = [];
+
 
         echo "<script>
         alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';

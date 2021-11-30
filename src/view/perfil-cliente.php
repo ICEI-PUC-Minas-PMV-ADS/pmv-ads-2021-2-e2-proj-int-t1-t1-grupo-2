@@ -132,6 +132,11 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                   </div>
                 </div>
 
+                <div class="row">
+                <button type="button" name="" onclick="window.location.href='./minhas-reservas.php';"
+                    class="btn btn-cadastro mb-3 col-md-12 mt-4">Minhas Reservas</button>
+                </div>
+
                 <div class='btn-group'>
                     <button type="submit" name="delete"
                     class="btn btn-cadastro-google mb-3 col-md-6 mt-4">Excluir Conta</button>
