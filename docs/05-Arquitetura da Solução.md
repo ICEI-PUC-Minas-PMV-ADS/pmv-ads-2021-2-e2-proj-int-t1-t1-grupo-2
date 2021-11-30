@@ -28,9 +28,17 @@ Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, 
 
 Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
 
+Front-end: HTML e CSS com auxílio do Bootstrap.
+Back-end: Php e Mysql.
+
+O usuário acessará o site, dentro dele será possível fazer o cadastro que irá direcionar os dados diretamente para o banco de dados. Depois de concluído, o usuário poderá navegar pelo site e acessar os restaurantes cadastrados ou então cadastrar o seu próprio. A parte visual está diretamente relacionada a parte do banco de dados.
+
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+O lançamento e hospedagem do site é feito pela plataforma InfinityFree.net
+
+https://infinityfree.net/
+
 
 > **Links Úteis**:
 >
