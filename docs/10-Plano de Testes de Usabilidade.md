@@ -20,7 +20,19 @@
                 Deve ser possível acessar e compreender todo o conteúdo do site através de ambos os dispositivos.
             </td>
         </tr>
-    </tbody>
+            <tr> 
+                <td>
+                    Testes executados
+                </td>
+                <td>
+                    1) Foi testado pelo link do projeto hospedado pela plataforma https://infinityfree.net/;<br> o acesso pelo dispositivo móvel smartphone. <br>
+                    2) Acessado o link do projeto https://dinnerboss.rf.gd/view/index.php <br> pelo dispositivo móvel smartphone tem acesso completo à home do projeto. Conforme demonstrado na telas que se segue.<br>
+                    <img src="tela_dispositivo_android.png" alt="" width="200">
+                    
+                </td>
+           </tr>
+                
+    
 </table>
 
 <table>
