@@ -34,7 +34,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
         crossorigin="anonymous"></script>
     <script src="js/script.js"></script>    
     <script src="https://kit.fontawesome.com/92fd3400ef.js" crossorigin="anonymous"></script>
-</head>
+    </head>
 
 <body>
     <header>
@@ -46,26 +46,25 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
+                    </li>
                 </ul>
                 <ul class="d-flex">
-                  <?php if ($logado == false): ?>
-                    <button onclick="window.location.href = './redirecionamento-cadastro.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
-                    <button onclick="window.location.href = './login.html'" class="btn btn-login" type="button">Entrar</button>
-                  <?php else:?>
-                    <button onclick="window.location.href = './perfil-cliente.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                <?php if ($logado == false): ?>
+                    <button onclick="window.location.href = './redirecionamento-cadastro.php'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button href="" class="btn btn-login" type="button">Entrar</button>
+                <?php else:?>
+                    <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
                     <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
-                  <?php endif ?>                  
-              </ul>
-            </div>
+                <?php endif ?>
+                </ul>
             </div>
         </nav>
     </header>
@@ -107,7 +106,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
         <h2 class="display-5 fw-bold">Faça seu cadastro, é grátis!!!</h2>
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-lg-5 d-flex justify-content-center align-items-center pb-4">
-            <button type="submit" onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-buscar">Sou cliente!</button>
+            <button type="submit" onclick="window.location.href = './redirecionamento-cadastro.html'" class="btn btn-buscar">Sou cliente!</button>
           </div>
           <div class="col-lg-5 d-flex justify-content-center align-items-center pb-4">
             <button type="submit" onclick="window.location.href = './login.html'" class="btn btn-buscar">Cadastrar restaurante!</button>

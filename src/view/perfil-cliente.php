@@ -7,10 +7,13 @@ session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
     $logado = true;
+    if($_SESSION['perfil'] == "empresario"){
+      header('Location: ./perfil-empresario.php');
+    }
     
 } else {
 
-    header("Location: login.html");
+    header("Location: ./login.html");
     
     $logado = false;
 }
@@ -34,12 +37,12 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
         crossorigin="anonymous"></script>
     <script src="js/script.js"></script>    
     <script src="https://kit.fontawesome.com/92fd3400ef.js" crossorigin="anonymous"></script>
-</head>
- 
+    </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="./index.html"><img src="img/logo-dinner.png" alt="" width="200"></a>
+            <a class="navbar-brand" href="./index.php"><img src="img/logo-dinner.png" alt="" width="200"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,23 +50,22 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-menu" aria-current="page" href="#">Restaurantes</a>
+                        <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="#">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
+                    <button onclick="window.location.href = './minhas-reservas.php'" class="btn btn-cadastro-usuario" type="button">Minha(s) reserva(s)</button>   
                     <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
                 </ul>
             </div>
-            </div>
         </nav>
     </header>
-    <body>
     <main>
     <section id="form-cadastro-cliente">
       <div class="col-sm-9 col-md-12 col-lg-10 mx-auto">
@@ -130,11 +132,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                     <input type="password" name="senhaCliente" class="form-control form-cadastro-input" id="senhaCliente"
                       required>
                   </div>
-                </div>
-
-                <div class="row">
-                <button type="button" name="" onclick="window.location.href='./minhas-reservas.php';"
-                    class="btn btn-cadastro mb-3 col-md-12 mt-4">Minhas Reservas</button>
                 </div>
 
                 <div class='btn-group'>

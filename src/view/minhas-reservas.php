@@ -12,6 +12,11 @@ $count = 0;
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     $logado = true;
+
+    if($_SESSION['perfil'] == "empresario"){
+      header('Locatio: ./buscar-restaurantes.php');
+    }
+
     if($_SESSION['reservas'] == null){
       $linhasReserva = array();
     }else{
@@ -49,36 +54,36 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     <script src="js/script.js"></script>    
     <script src="https://kit.fontawesome.com/92fd3400ef.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="./index.html"><img src="img/logo-dinner.png" alt="" width="200"></a>
+            <a class="navbar-brand" href="./index.php"><img src="img/logo-dinner.png" alt="" width="200"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-menu" aria-current="page" href="./busca-restaurantes.html">Restaurantes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
+                    </li>
                 </ul>
                 <ul class="d-flex">
-                  <?php if ($logado == false): ?>
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                <?php if ($logado == false): ?>
+                    <button onclick="window.location.href = './redirecionamento-cadastro.php'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
                     <button href="" class="btn btn-login" type="button">Entrar</button>
                 <?php else:?>
-                    <button onclick="window.location.href = './perfil-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
-                    <button onclick="window.location.href = './sair.php'" class="btn btn-login" type="button">Sair</button>
-                <?php endif ?>                 
-              </ul>
-            </div>
+                    <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                    <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
+                <?php endif ?>
+                </ul>
             </div>
         </nav>
     </header>

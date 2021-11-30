@@ -49,7 +49,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-menu" aria-current="page" href="#">Restaurantes</a>
+                        <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
@@ -60,7 +60,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 </ul>
                 <ul class="d-flex">
                 <?php if ($logado == false): ?>
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button onclick="window.location.href = './redirecionamento-cadastro.php'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
                     <button href="" class="btn btn-login" type="button">Entrar</button>
                 <?php else:?>
                     <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>

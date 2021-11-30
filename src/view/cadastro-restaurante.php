@@ -7,6 +7,9 @@
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
         $logado = true;
+        if($_SESSION['perfil'] == "cliente"){
+            header('Location: ./buscar-restaurantes.php');
+        }
     
     } else {
     
@@ -34,7 +37,7 @@
         crossorigin="anonymous"></script>
     <script src="js/script.js"></script>    
     <script src="https://kit.fontawesome.com/92fd3400ef.js" crossorigin="anonymous"></script>
-</head>
+    </head>
 
 <body>
     <header>
@@ -50,17 +53,21 @@
                         <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="submit">Cadastre-se</button>
-                    <button href="" class="btn btn-login" type="submit">Login</button>                    
+                <?php if ($logado == false): ?>
+                    <button onclick="window.location.href = './cadastro-empresario.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button href="" class="btn btn-login" type="button">Entrar</button>
+                <?php else:?>
+                    <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                    <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
+                <?php endif ?>
                 </ul>
-            </div>
             </div>
         </nav>
     </header>

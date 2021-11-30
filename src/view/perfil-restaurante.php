@@ -46,7 +46,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="./index.html"><img src="img/logo-dinner.png" alt="" width="200"></a>
+            <a class="navbar-brand" href="./index.php"><img src="img/logo-dinner.png" alt="" width="200"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,20 +57,20 @@
                         <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.php?count=<?php echo $count?>">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
                 <?php if ($logado == false): ?>
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
-                    <button href="" class="btn btn-login" type="button">Login</button>
+                    <button onclick="window.location.href = './redirecionamento-cadastro.php'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button href="" class="btn btn-login" type="button">Entrar</button>
                 <?php else:?>
-                    <button onclick="window.location.href = './perfil-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
-                    <button onclick="window.location.href = './sair.php'" class="btn btn-login" type="button">Sair</button>
-                <?php endif ?>             
+                    <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                    <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
+                <?php endif ?>           
                 </ul>
             </div>
             </div>

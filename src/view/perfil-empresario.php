@@ -8,6 +8,10 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
     $logado = true;
     
+    if($_SESSION['perfil'] == "cliente"){
+      header('Location: ./perfil-cliente.php');
+    }
+
 } else {
 
     header("Location: login.html");
@@ -57,7 +61,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                     </li>
                 </ul>
                 <ul class="d-flex">
-                  <button onclick="window.location.href = '../sai.php'" class="btn btn-cadastro-usuario" type="button">Meu(s) restaurante(s)</button>   
+                  <button onclick="window.location.href = './meus-restaurantes.php'" class="btn btn-cadastro-usuario" type="button">Meu(s) restaurante(s)</button>   
                   <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
                 </ul>
             </div>
