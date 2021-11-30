@@ -58,7 +58,7 @@
                       </li>
                   </ul>
                   <ul class="d-flex">
-                      <button href="" class="btn btn-login" type="button">Entrar</button>
+                      <button onclick="window.location.href = './login.html'" class="btn btn-login" type="button">Entrar</button>
                   </ul>
               </div>
           </nav>
