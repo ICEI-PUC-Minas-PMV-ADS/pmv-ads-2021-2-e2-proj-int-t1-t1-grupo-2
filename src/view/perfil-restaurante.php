@@ -2,7 +2,16 @@
 <html lang="pt-br">
 
     <?php
-
+    include_once('../controller_bd_restaurante.php');
+    $cod_restaurante = $_GET['id'];
+    $lista = $GLOBALS['linhas'];
+    $count = 0;
+    while($count < count($lista)){
+        if($lista[$count]['id'] == $cod_restaurante){
+            break;
+        }
+        $count +=1;
+    }
     session_start();
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
@@ -37,7 +46,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="./index.html"><img src="img/logo-dinner.png" alt="" width="200"></a>
+            <a class="navbar-brand" href="./index.php"><img src="img/logo-dinner.png" alt="" width="200"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,20 +57,20 @@
                         <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.php?count=<?php echo $count?>">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
                 <?php if ($logado == false): ?>
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
-                    <button href="" class="btn btn-login" type="button">Login</button>
+                    <button onclick="window.location.href = './redirecionamento-cadastro.php'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button onclick="window.location.href = './login.html'" class="btn btn-login" type="button">Entrar</button>
                 <?php else:?>
-                    <button onclick="window.location.href = './perfil-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
-                    <button onclick="window.location.href = './sair.php'" class="btn btn-login" type="button">Sair</button>
-                <?php endif ?>             
+                    <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                    <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
+                <?php endif ?>           
                 </ul>
             </div>
             </div>
@@ -71,15 +80,15 @@
     <main>
         <section class="bg-sushi">
             <div class="nome-logo-restaurante">
-                <img class="logo rounded-circle" width="180px" src="./img/sushi-luxury.png" alt="">
-                <h3 class="nome-restaurante display-4 fw-bold">Sushi Luxury</h3>
+                <img class="logo rounded-circle" width="180px" src="../pictures/<?php echo $lista[$count]['logo']?>" alt="">
+                <h3 class="nome-restaurante display-4 fw-bold"><?php echo $lista[$count]['nome']?></h3>
             </div>
         </section>
         <section id="sub-menu">
             <div class="row">
                 <ul class="col-md-6">
                     <li class="">
-                        <a href="./reserva.html">Fazer reserva</a>
+                        <a href="./reserva.php?count=<?php echo $count?>">Fazer reserva</a>
                     </li>
                     <li class="">
                         <a href="">Ver cardápio</a>
@@ -100,26 +109,25 @@
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-map-marker-alt"></i>
                     <h4>Endereço:</h4>
-                    <p> Avenida Lorem Ipsum, 260 <br> 
-                        Bairrro Lorem Ipsum </p>
+                    <p> <?php echo $lista[$count]['logradouro']?> <br> 
+                    <?php echo $lista[$count]['cidade']?> <?php echo $lista[$count]['estado']?> </p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="far fa-clock"></i>
                     <h4>Funcionamento:</h4>
-                    <p> Terça a Domingo <br> 
-                        19h às 2h</p>
+                    <p> <?php echo $lista[$count]['diasDaSemana']?><br> 
+                    <?php echo $lista[$count]['horarioAbrir']?> às <?php echo $lista[$count]['horarioFechar']?></p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-phone-alt"></i>
                     <h4>Contato:</h4>
-                    <p> (31) 3421-9047 <br> 
-                        @sushi_lx </p>
+                    <p> <?php echo $lista[$count]['tel']?><br> 
+                        @<?php echo $lista[$count]['nome']?> </p>
                 </div>
                 <div class="col-md-3 align p-5">
                     <i class="fas fa-hand-holding-usd"></i>
                     <h4> Formas de pagamento:</h4>
-                    <p> Dinheiro | Pix <br> 
-                        Débito | Crédito </p>
+                    <p> <?php echo $lista[$count]['formasDePagamento']?><br></p>
                 </div>
             </div>
         </section>

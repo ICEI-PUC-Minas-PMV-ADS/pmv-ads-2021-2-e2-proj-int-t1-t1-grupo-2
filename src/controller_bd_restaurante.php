@@ -2,6 +2,18 @@
 
 include_once('config.php');
 
+    $dadosEstabelecimento = mysqli_query($conexao,"SELECT * FROM estabelecimento");
+        if(mysqli_num_rows($dadosEstabelecimento) >= 1){
+            $GLOBALS['linhas'] = array();
+            while($linha = $dadosEstabelecimento->fetch_array(MYSQLI_ASSOC))
+            {
+            $lis[] = $linha;
+            }
+            $GLOBALS['linhas'] = $lis;
+        }else{
+            $GLOBALS['linhas'] = null;
+        }
+
 if(isset($_POST['cadastrar'])){
     session_start();
 
@@ -24,6 +36,7 @@ if(isset($_POST['cadastrar'])){
     $diasDaSemanaTexto = '';
     $formasDePagamento = $_POST['formasDePagamento'];
     $formasDePagamentoTexto = '';
+    $qtdMesa = $_POST['qtdMesa'];
 
 
     //faz a consulta no BD e contabiliza quantos dados foram encontrados
@@ -58,18 +71,18 @@ if(isset($_POST['cadastrar'])){
     
         move_uploaded_file($_FILES['logoRestaurante']['tmp_name'], $diretorio.$novo_nome);
     }else{
-        $novo_nome = "bbBBbbCCccAAccBBBaaaaCCCCddddSSs321123555.jpg";
+        $novo_nome = "aaaavvvvvv.jpg";
     }
 
    //faz o cadastro do novo estabelecimetno no banco de dados!
     if(mysqli_query($conexao,"INSERT INTO estabelecimento(nome,logo,cnpj,tel,redeSocial,site,email,logradouro,bairro,cidade,
-    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento,empresario_id) 
+    cep,estado,horarioAbrir,horarioFechar,diasDaSemana,formasDePagamento,empresario_id,qtdMesa) 
     values ('$nome','$novo_nome','$cnpj','$tel','$redeSocial','$site','$email','$logradouro','$bairro','$cidade','$cep','$estado','$horarioAbrir',
-    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto','$empresario_id')"))
+    '$horarioFechar','$diasDaSemanaTexto','$formasDePagamentoTexto','$empresario_id','$qtdMesa')"))
     {
         $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
         if(mysqli_num_rows($dados) >= 1){
-            while($linha = $dados->fetch_array())
+            while($linha = $dados->fetch_array(MYSQLI_ASSOC))
             {
             $linhas[] = $linha;
             }
@@ -82,21 +95,6 @@ if(isset($_POST['cadastrar'])){
             echo "ERRO: " . mysqli_error($conexao);
     }  
 }
-    mysqli_close($conexao);
-}
-
-function resgatarDados(){
-
-    $empresario_id = $_SESSION['id'];
-
-    $dados = mysqli_query($conexao,"SELECT * FROM estabelecimento WHERE empresario_id = '$empresario_id'");
-    if(mysqli_num_rows($dados) >= 1){
-        while($linha = $dados->fetch_array())
-        {
-        $linhas[] = $linha;
-        }
-    $_SESSION['estabelecimentos'] = $linhas;
-    }
     mysqli_close($conexao);
 }
 
@@ -169,5 +167,6 @@ if(isset($_POST['atualizar'])){
     }
     mysqli_close($conexao);
 }
+
 
 ?>

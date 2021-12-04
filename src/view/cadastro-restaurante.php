@@ -7,6 +7,9 @@
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
     
         $logado = true;
+        if($_SESSION['perfil'] == "cliente"){
+            header('Location: ./buscar-restaurantes.php');
+        }
     
     } else {
     
@@ -34,12 +37,12 @@
         crossorigin="anonymous"></script>
     <script src="js/script.js"></script>    
     <script src="https://kit.fontawesome.com/92fd3400ef.js" crossorigin="anonymous"></script>
-</head>
+    </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="./index.html"><img src="img/logo-dinner.png" alt="" width="200"></a>
+            <a class="navbar-brand" href="./index.php"><img src="img/logo-dinner.png" alt="" width="200"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,17 +53,21 @@
                         <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="submit">Cadastre-se</button>
-                    <button href="" class="btn btn-login" type="submit">Login</button>                    
+                <?php if ($logado == false): ?>
+                    <button onclick="window.location.href = './cadastro-empresario.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button href="" class="btn btn-login" type="button">Entrar</button>
+                <?php else:?>
+                    <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
+                    <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
+                <?php endif ?>
                 </ul>
-            </div>
             </div>
         </nav>
     </header>
@@ -131,6 +138,7 @@
                                 <input type="text" class="form-control form-cadastro-input" name="estadoRestaurante" required>
                             </div>
                         </div>    
+
                         <div class="row">
                             <div class="mb-3 col-md-3">
                                 <label for="horarioAbrirRestaurante" class="form-label text-form-cadastro">Horário de abrir</label>
@@ -140,8 +148,12 @@
                                 <label for="horarioFecharRestaurante" class="form-label text-form-cadastro">Horário de fechar</label>
                                 <input type="text" class="form-control form-cadastro-input" name="horarioFecharRestaurante" placeholder="00h00" required>
                             </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="horarioFecharRestaurante" class="form-label text-form-cadastro">Quantidade de Mesas</label>
+                                <input type="number" min='0' class="form-control form-cadastro-input" name="qtdMesa" placeholder="12" required>
+                            </div>
+                        </div>    
 
-                        </div>                        
                         <div class="row">
                             <label for="diaFuncionamentoRestaurante" class="form-label text-form-cadastro">Dias da semana</label>
                             <div class="form-check form-check-inline mb-3 col-md-2">

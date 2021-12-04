@@ -34,15 +34,13 @@
             <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+            <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
           </li>
           <li class="nav-item">
-            <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+            <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
           </li>
         </ul>
         <ul class="d-flex">
-          <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario"
-            type="submit">Cadastre-se</button>
           <button onclick="window.location.href = './login.html'" class="btn btn-login" type="submit">Entrar</button>
         </ul>
       </div>
@@ -85,8 +83,8 @@
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="datanascCliente" class="form-label text-form-cadastro">Data de Nascimento</label>
-                    <input type="text" name="dataNasEmpresario" class="form-control form-cadastro-input"
-                     placeholder="____/__/__" required>
+                    <input type="date" name="dataNasEmpresario" class="form-control form-cadastro-input"
+                     placeholder="__/__/____" required>
                   </div>
                 </div>
 
@@ -118,7 +116,7 @@
                 
                 <div class="row">
                   <div class="mb-3 col-md-6">
-                    <button type="button" onclick="window.location.href = './redirecionamento-cadastro.html'" class="btn btn-cadastro mb-3 col-md-10 mt-4">Voltar</button>
+                    <button type="button" onclick="window.location.href = './redirecionamento-cadastro.php'" class="btn btn-cadastro mb-3 col-md-10 mt-4">Voltar</button>
                   </div>
                   <div class="mb-3 col-md-6">
                     <button type="submit" name="cadastrar" class="btn btn-cadastro mb-3 col-md-10 mt-4">Cadastrar</button>

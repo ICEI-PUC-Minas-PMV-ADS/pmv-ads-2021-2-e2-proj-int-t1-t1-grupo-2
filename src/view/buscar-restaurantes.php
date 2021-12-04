@@ -4,6 +4,9 @@
 
 <?php
 
+include_once('../controller_bd_restaurante.php');
+$lista = $GLOBALS['linhas'];
+$count = 0;
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
 
@@ -15,7 +18,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
 }
 
 ?>
-
 
 <head>
     <meta charset="utf-8">
@@ -39,7 +41,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="./index.html"><img src="img/logo-dinner.png" alt="" width="200"></a>
+            <a class="navbar-brand" href="./index.php"><img src="img/logo-dinner.png" alt="" width="200"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,29 +49,27 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-menu" aria-current="page" href="#">Restaurantes</a>
+                        <a class="nav-menu" aria-current="page" href="./buscar-restaurantes.php">Restaurantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu active" href="./reserva.html">Faça sua reserva!</a>
+                        <a class="nav-menu active" href="./reserva.php">Faça sua reserva!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-menu" href="./cadastro-restaurante.html">Cadastre seu restaurante</a>
+                        <a class="nav-menu" href="./cadastro-restaurante.php">Cadastre seu restaurante</a>
                     </li>
                 </ul>
                 <ul class="d-flex">
                 <?php if ($logado == false): ?>
-                    <button onclick="window.location.href = './cadastro-cliente.html'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
-                    <button href="" class="btn btn-login" type="button">Entrar</button>
+                    <button onclick="window.location.href = './redirecionamento-cadastro.php'" class="btn btn-cadastro-usuario" type="button" id="btn_cadastre-se">Cadastre-se</button>
+                    <button onclick="window.location.href = './login.html'" class="btn btn-login" type="button">Entrar</button>
                 <?php else:?>
                     <button onclick="window.location.href = './perfil-<?php echo $_SESSION['perfil']?>.php'" class="btn btn-cadastro-usuario" type="button" id="minha_conta">Minha Conta</button>
                     <button onclick="window.location.href = '../sair.php'" class="btn btn-login" type="button">Sair</button>
                 <?php endif ?>
                 </ul>
             </div>
-            </div>
         </nav>
     </header>
-
     <main>
         <section>
             <div class="col-md-12">
@@ -90,60 +90,23 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 </div>
             </div>
             <div class="row">
+            <?php if ($lista != null): ?>
+                <?php while($count < count($lista)){?>
                 <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="./perfil-pizzatime.html">
-                        <img class="busca-logos rounded-circle" src="./img/padrao.png" alt="">
-                        <p class="busca-nome">Pizza Time</p>
+                    <a class="text-decoration-none" href="./perfil-restaurante.php?id=<?php echo $lista[$count]['id']?>">
+                        <img class="busca-logos rounded-circle" src="../pictures/<?php echo $lista[$count]['logo']?>">
+                        <p class="busca-nome"><?php echo $lista[$count]['nome']?></p>
                     </a>
                 </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="./perfil-sushi-luxury.php">
-                        <img class="busca-logos rounded-circle" src="./img/sushi-luxury.png" alt="">
-                        <p class="busca-nome">Sushi Luxury</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="./perfil-tudo-grelhado.html">
-                        <img class="busca-logos rounded-circle" src="./img/tudo-grelhado.png" alt="">
-                        <p class="busca-nome">Tudo Grelhado</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/pizzatown.png" alt="">
-                        <p class="busca-nome">Pizzatown</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/takoyaki.png" alt="">
-                        <p class="busca-nome">Takoyaki</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/mexicana.png" alt="">
-                        <p class="busca-nome">Mexican Food</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/sea-food.png" alt="">
-                        <p class="busca-nome">Sea Food</p>
-                    </a>
-                </div>
-                <div class="col-md-3 logo-nome">
-                    <a class="text-decoration-none" href="">
-                        <img class="busca-logos rounded-circle" src="./img/vintage-dogs.png" alt="">
-                        <p class="busca-nome">Vintage Hot Dogs</p>
-                    </a>
-                </div>
+            <?php $count +=1;}?>
+            <?php else:?>
+                <h3>Ainda não temos nenhum estabelecimento cadastrado ;(</h3>
+            <?php endif ?>
             </div>
         </section>
     </main>
-
     <footer>
-        <div id="footer-area">
+        <div id="footer-areas">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
@@ -160,7 +123,5 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             </div>
         </div>
     </footer>
-
 </body>
-
 </html>

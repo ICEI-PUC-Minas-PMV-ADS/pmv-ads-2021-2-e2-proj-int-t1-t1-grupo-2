@@ -3,27 +3,32 @@
 
 <?php
 
-include '../config.php';
-
+include_once('../controller_bd_reserva.php');
+include_once('../controller_bd_restaurante.php');
+$lista = $GLOBALS['linhas'];
+$count2 = 0;
+$count = 0;
 
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
-    
     $logado = true;
 
-    if($_SESSION['perfil'] == "cliente"){
-      header('Location: ./buscar-restaurantes.php');
+    if($_SESSION['perfil'] == "empresario"){
+      header('Locatio: ./buscar-restaurantes.php');
     }
 
-    if($_SESSION['estabelecimentos'] == null){
-      $linhas = [];
+    if($_SESSION['reservas'] == null){
+      $linhasReserva = array();
     }else{
-      $linhas = $_SESSION['estabelecimentos'];
+      $linhasReserva = $_SESSION['reservas'];
+      while($count2 < count($lista)){
+        if($linhasReserva[$count]['estabelecimento_id'] == $lista[$count2]['id']){
+            break;
+        }
+        $count2 +=1;
+      }
     }
-    $count = 0;
-    
-    
-    
+
 } else {
     $logado = false;
     header('Location: ./login.html');
@@ -86,39 +91,38 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
       <table class="table table-striped">
       <thead>
         <tr>
-          <th>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            </div>
-          </th>
-          <th scope="col">Nome</th>
-          <th scope="col">CNPJ</th>
+          <th scope="col">Restaurante</th>
+          <th scope="col">Mesa</th>
           <th scope="col">Endereço</th>
           <th scope="col">Horário</th>
+          <th scope="col">Data</th>
         </tr>
         </thead>
         <tbody>
-        <?php while($count < count($linhas)){?>
+        <?php if ($linhasReserva != null): ?>
+        <?php while($count < count($linhasReserva)){?>
         <tr>
-          <td>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              </div>
+            <td>
+                <?php echo $lista[$count2]['nome']?>
             </td>
             <td>
-                <?php echo $linhas[$count]['nome']?>
+                <?php echo $linhasReserva[$count]['mesa_id'];?>
             </td>
             <td>
-                <?php echo $linhas[$count]['cnpj'];?>
+              <?php echo $lista[$count2]['logradouro']?> <?php echo $lista[$count2]['cidade']?> <?php echo $lista[$count2]['estado']?> </p>
             </td>
             <td>
-                <?php echo $linhas[$count]['logradouro']." ".$linhas[$count]['bairro']." ".$linhas[$count]['cidade']." ".$linhas[$count]['estado']." ".$linhas[$count]['cep'] ?>
+              <?php echo $linhasReserva[$count]['horario'];?>
             </td>
             <td>
-                <?php echo $linhas[$count]['horarioAbrir']." ".$linhas[$count]['horarioFechar'];?>
+              <?php echo date($linhasReserva[$count]['data']);?>
+            </td>
+            <td>
+              <a class="btn btn-primary" href='../controller_bd_reserva.php?delete=true&id=<?php echo $linhasReserva[$count]['id'];?>&count=<?php echo $count;?>'>Cancelar</a>
             </td>
           </tr>
           <?php $count += 1; } ?>
+          <?php endif ?>
           <tr>
         </tbody>
       </table>

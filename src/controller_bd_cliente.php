@@ -80,9 +80,11 @@ if(isset($_POST['cadastrar'])){
         $_SESSION['email'] = $email;
         $_SESSION['cpf'] = $cpf;
         $_SESSION['data_nascimento'] = $dataNascimento;
-        $_SESSION['celular'] = $cel;
-        $_SESSION['telefone'] = $tel;
+        $_SESSION['cel'] = $cel;
+        $_SESSION['tel'] = $tel;
         $_SESSION['foto'] = "pictures/".$novo_nome;
+        $_SESSION['reservas'] = [];
+
 
         echo "<script>
         alert('Cadastrado com sucesso!'); location= './view/buscar-restaurantes.php';
@@ -141,6 +143,7 @@ if(isset($_POST['atualizar'])){
     $usuario = $_POST['usuarioCliente'];
     $dataNascimento = $_POST['dataNasCliente'];
     $email = $_POST['emailCliente'];
+    $cel = $_POST['celCliente'];
     $cpf = $_POST['cpfCliente'];
     $senha = $_POST['senhaCliente'];
 
@@ -149,11 +152,12 @@ if(isset($_POST['atualizar'])){
         // transforma os dados em um array
         $linha = mysqli_fetch_assoc($dados);
         if (password_verify($senha, $linha['senha'])) {
-            if(mysqli_query($conexao,"UPDATE cliente SET nome = '$nome', data_nascimento = '$dataNascimento', usuario = '$usuario' WHERE email = '$email' AND cpf = '$cpf'")){
+            if(mysqli_query($conexao,"UPDATE cliente SET nome = '$nome', data_nascimento = '$dataNascimento', usuario = '$usuario', tel = '$cel' WHERE email = '$email' AND cpf = '$cpf'")){
                 session_start();
                 $_SESSION['usuario'] = $usuario;
                 $_SESSION['nome'] = $nome;
                 $_SESSION['data_nascimento'] = $dataNascimento;
+                $_SESSION['cel'] = $cel;
                 echo "<script>
                 alert('Conta Atualizada com Sucesso!'); location= './view/perfil-cliente.php';
                 </script>";
