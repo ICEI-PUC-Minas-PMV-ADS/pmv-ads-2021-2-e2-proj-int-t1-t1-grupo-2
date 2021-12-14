@@ -16,10 +16,9 @@ Diante disso vemos que um sistema de agendamento para os comércios seria de gra
 * José Flávio Miranda
 * Ludmila Rangel Da Silva Guizan Pinheiro
 * Maykell Alvim De França
-* Pablo Henrique Xavier Borges
-* Rafael Xavier Rezende
 
-## Orientador
+
+## Orientadora
 
 * Simone Alves Nogueira
 
